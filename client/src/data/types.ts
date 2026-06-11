@@ -10,7 +10,7 @@ export type TransferMethod = "lady_bird" | "tod" | "tod_affidavit" | "quit_claim
 
 export interface PartyName {
   fullName: string;
-  cityState?: string; // e.g. "Sherwood Township, Branch County, Michigan"
+  cityState?: string; // e.g. "Worthington, Franklin County, Ohio"
 }
 
 export interface Beneficiary {
@@ -22,7 +22,7 @@ export interface Beneficiary {
 
 export interface Property {
   id: string;
-  label: string; // friendly name e.g. "164 Dotson Drive house"
+  label: string; // friendly name e.g. "Maplewood Lane residence"
   address: string;
   stateCode: string; // USPS
   county: string;
@@ -64,7 +64,7 @@ export interface EstatePlan {
   // Identity
   settlor: PartyName;
   successorTrustee?: string;
-  trustName?: string; // e.g. "The Timothy A. Moore Revocable Living Trust"
+  trustName?: string; // e.g. "The Jordan A. Whitfield Revocable Living Trust"
   notaryCounty?: string; // county where notarization occurs
 
   beneficiaries: Beneficiary[];
