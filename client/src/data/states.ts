@@ -161,9 +161,9 @@ export const STATES: Record<string, StateLaw> = {
       sources: [S("MI Treasury — Form 2766", "https://www.michigan.gov/-/media/Project/Websites/treasury/Forms/Local-Government/2766.pdf")],
     },
     counties: [
-      { name: "Branch", registerOfDeedsPhone: "(517) 279-4308", recordingFee: 30, assessorPhone: "(517) 279-4312", notes: "Sherwood Township Assessor: (269) 962-7959" },
-      { name: "Luce", registerOfDeedsPhone: "(906) 293-5521", recordingFee: 30, assessorPhone: "(906) 293-8798", notes: "McMillan Township" },
-      { name: "Macomb", registerOfDeedsPhone: "(586) 469-5120", recordingFee: 30, assessorPhone: "(586) 949-0404", notes: "Chesterfield Township Assessor" },
+      { name: "Wayne", registerOfDeedsPhone: "(313) 224-5850", recordingFee: 30, notes: "Detroit — Michigan's most populous county." },
+      { name: "Oakland", registerOfDeedsPhone: "(248) 858-0606", recordingFee: 30, notes: "Register of Deeds, Pontiac." },
+      { name: "Kent", registerOfDeedsPhone: "(616) 632-7610", recordingFee: 30, notes: "Grand Rapids — county administration building." },
     ],
   },
 
