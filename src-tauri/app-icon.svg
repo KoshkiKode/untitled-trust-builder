@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Source for the desktop app icons. Regenerate with:
+         npx tauri icon src-tauri/app-icon.svg -o src-tauri/icons
+       The mark is the Trust Builder shield from client/src/components/Logo.tsx,
+       colored with the app's light-theme primary on its light background. -->
+  <rect width="1024" height="1024" rx="224" fill="#F9FAFB"/>
+  <g transform="translate(212 212) scale(12.5)" fill="none" color="#105B65">
+    <path d="M24 3 L41 9 V23 C41 34 33 41 24 45 C15 41 7 34 7 23 V9 Z" stroke="#105B65" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+    <rect x="14" y="15" width="20" height="5.4" rx="1.2" fill="#105B65"/>
+    <rect x="17" y="23" width="14" height="5.4" rx="1.2" fill="#105B65" opacity="0.72"/>
+    <rect x="20" y="31" width="8" height="5.4" rx="1.2" fill="#105B65" opacity="0.45"/>
+  </g>
+</svg>
