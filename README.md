@@ -52,6 +52,13 @@ npm run tauri:build  # desktop installers
 npm run cap:sync     # sync web build into native mobile projects
 ```
 
+Desktop icons live in `src-tauri/icons/` and are generated from `src-tauri/app-icon.svg`:
+
+```bash
+npx tauri icon src-tauri/app-icon.svg -o src-tauri/icons
+rm -rf src-tauri/icons/android src-tauri/icons/ios   # mobile icons are not used here
+```
+
 ## Releases
 
 Push a version tag to trigger the multi-platform build pipeline (`.github/workflows/build.yml`):
@@ -60,7 +67,14 @@ Push a version tag to trigger the multi-platform build pipeline (`.github/workfl
 git tag v0.1.0 && git push origin v0.1.0
 ```
 
-This produces Windows / macOS / Linux desktop installers, an Android APK (plus a signed AAB when keystore secrets are configured), an iOS archive, and the web bundle, and attaches them to a GitHub Release.
+A tag push builds:
+
+- **Windows and Linux desktop installers**, attached to a GitHub Release.
+- **An Android debug APK** (plus a signed AAB when the keystore secrets are configured) and **the web bundle**, both uploaded as workflow artifacts.
+
+**macOS and iOS are opt-in** while there is no Apple Developer account: run the workflow manually (Actions → Build → Run workflow) and tick `include_apple`. Tag pushes never build them.
+
+The Android job uses Java 17 on purpose: Capacitor 6 generates a Gradle 8.2.1 project, which cannot run on Java 21. Move to Java 21 only together with Capacitor 7+.
 
 ## License
 
