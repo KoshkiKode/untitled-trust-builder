@@ -8,6 +8,9 @@ const PAGE_W = 612;
 const PAGE_H = 792;
 const MARGIN = 56;
 const CONTENT_W = PAGE_W - MARGIN * 2;
+// y of the rule above the footer disclaimer. Body text stops at y=60, and the
+// page number sits at y=18, so 51 keeps both clear of the two disclaimer lines.
+const FOOTER_RULE_Y = 51;
 const BODY_SIZE = 10.5;
 const LINE_H = 15;
 const TITLE_SIZE = 18;
@@ -109,24 +112,27 @@ class Cursor {
   drawFooter() {
     const size = 7;
     const lines = wrapLine(sanitize(this.footer), this.fonts.regular, size, CONTENT_W);
-    let fy = 30;
-    // page number
-    this.page.drawText(`${this.pageNum}`, {
-      x: PAGE_W / 2,
+    let fy: number;
+    // page number, centered; sits below the two-line disclaimer with clearance
+    const pageLabel = `${this.pageNum}`;
+    this.page.drawText(pageLabel, {
+      x: (PAGE_W - this.fonts.regular.widthOfTextAtSize(pageLabel, size)) / 2,
       y: 18,
       size,
       font: this.fonts.regular,
       color: MUTED,
     });
+    // rule + disclaimer block. Body text stops at y=60 (see ensure()), so the
+    // rule at 51 keeps clear of it while leaving room for the page number.
     this.page.drawLine({
-      start: { x: MARGIN, y: 42 },
-      end: { x: PAGE_W - MARGIN, y: 42 },
+      start: { x: MARGIN, y: FOOTER_RULE_Y },
+      end: { x: PAGE_W - MARGIN, y: FOOTER_RULE_Y },
       thickness: 0.5,
       color: RULE,
     });
-    // footer text (above the rule, max 2 lines)
+    // footer text (below the rule, max 2 lines)
     const shown = lines.slice(0, 2);
-    fy = 42 - 10;
+    fy = FOOTER_RULE_Y - 10;
     for (const ln of shown) {
       this.page.drawText(ln, {
         x: MARGIN,
@@ -386,9 +392,9 @@ export async function renderBooklet(
       if (ty < 70) break;
     }
     // footer on TOC
-    tocPage.drawLine({ start: { x: MARGIN, y: 42 }, end: { x: PAGE_W - MARGIN, y: 42 }, thickness: 0.5, color: RULE });
+    tocPage.drawLine({ start: { x: MARGIN, y: FOOTER_RULE_Y }, end: { x: PAGE_W - MARGIN, y: FOOTER_RULE_Y }, thickness: 0.5, color: RULE });
     const fl = wrapLine(sanitize(DISCLAIMER), fonts.italic, 7, CONTENT_W).slice(0, 2);
-    let fy = 32;
+    let fy = FOOTER_RULE_Y - 10;
     for (const l of fl) { tocPage.drawText(l, { x: MARGIN, y: fy, size: 7, font: fonts.italic, color: MUTED }); fy -= 9; }
   }
 
