@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, ArrowRight, Sparkles, Wand2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info, Sparkles, Wand2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { usePlan } from "@/context/PlanProvider";
 import { generatePlan } from "@/lib/planGenerator";
 import { generateDocuments } from "@/lib/documentGenerator";
 import { sampledPlan } from "@/lib/sampleData";
+import { DISCLAIMER } from "@/lib/constants";
 import {
   StepJurisdiction,
   StepBeneficiaries,
@@ -52,6 +53,12 @@ export default function Build() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
+        <div className="mb-8 flex gap-3 rounded-xl border border-border bg-muted/40 p-4" role="note">
+          <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Informational tool only:</span> {DISCLAIMER}
+          </p>
+        </div>
         {/* progress */}
         <div className="mb-8">
           <div className="mb-3 flex items-center justify-between">

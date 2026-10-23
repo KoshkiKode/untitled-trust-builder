@@ -203,7 +203,9 @@ async function loadFonts(doc: PDFDocument): Promise<Fonts> {
 }
 
 function triggerDownload(bytes: Uint8Array, filename: string) {
-  const blob = new Blob([bytes], { type: "application/pdf" });
+  const buffer = new ArrayBuffer(bytes.byteLength);
+  new Uint8Array(buffer).set(bytes);
+  const blob = new Blob([buffer], { type: "application/pdf" });
   saveAs(blob, filename);
 }
 
