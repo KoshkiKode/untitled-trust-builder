@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, ArrowRight, Info, Sparkles, Wand2 } from "lucide-react";
+import { AlertCircle, ArrowLeft, ArrowRight, Info, Sparkles, Wand2 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { usePlan } from "@/context/PlanProvider";
@@ -8,6 +8,7 @@ import { generatePlan } from "@/lib/planGenerator";
 import { generateDocuments } from "@/lib/documentGenerator";
 import { sampledPlan } from "@/lib/sampleData";
 import { DISCLAIMER } from "@/lib/constants";
+import { validatePlan } from "@/lib/validatePlan";
 import {
   StepJurisdiction,
   StepBeneficiaries,
@@ -32,6 +33,7 @@ export default function Build() {
   const [step, setStep] = useState(0);
   const [, navigate] = useLocation();
   const { plan, setPlan, setResult } = usePlan();
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   const isFirst = step === 0;
   const isLast = step === STEPS.length - 1;
@@ -43,6 +45,12 @@ export default function Build() {
   }
 
   function generate() {
+    const errors = validatePlan(plan);
+    if (errors.length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+    setValidationErrors([]);
     const businessPlan = generatePlan(plan);
     const documents = generateDocuments(plan);
     setResult({ businessPlan, documents });
@@ -59,6 +67,25 @@ export default function Build() {
             <span className="font-semibold text-foreground">Informational tool only:</span> {DISCLAIMER}
           </p>
         </div>
+        {validationErrors.length > 0 && (
+          <div
+            className="mb-8 rounded-xl border border-destructive/40 bg-destructive/5 p-4"
+            role="alert"
+            data-testid="plan-validation-errors"
+          >
+            <div className="flex gap-3">
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
+              <div>
+                <p className="text-sm font-semibold text-foreground">Review these items before generating</p>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                  {validationErrors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
         {/* progress */}
         <div className="mb-8">
           <div className="mb-3 flex items-center justify-between">

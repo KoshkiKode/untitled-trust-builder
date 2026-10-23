@@ -106,12 +106,12 @@ export const STATES: Record<string, StateLaw> = {
     complete: true,
     asOf: "2026-06-10",
     trust: {
-      notarizationRequired: true,
+      notarizationRequired: false,
       witnessesRequired: 0,
       grantorTrustDuringLife: true,
       certificateOfTrustRecognized: true,
       notes:
-        "Michigan does not require an attorney to create a revocable living trust. A living trust should be notarized to be reliably enforceable. While you serve as trustee during your lifetime it is a grantor trust — income flows to your personal Form 1040, no separate Form 1041 is required.",
+        "Michigan does not require an attorney, notary, or witnesses for a revocable living trust's general validity. Notarization is often practical for financial institutions and related conveyances. While you serve as trustee during your lifetime it is generally treated as a grantor trust; confirm tax treatment for your facts.",
       sources: [
         S("LegalZoom — Living Trust in Michigan", "https://www.legalzoom.com/articles/create-a-living-trust-in-michigan"),
         S("Castle Wealth Group", "https://michiganestateplanning.com/michigan-revocable-living-trust/"),
@@ -121,7 +121,7 @@ export const STATES: Record<string, StateLaw> = {
       mechanisms: ["lady_bird", "trust_only"],
       primaryMechanism: "lady_bird",
       notes:
-        "Michigan is one of only five states that recognize the Lady Bird (enhanced life estate) deed. It preserves the homestead/PRE exemption and Medicaid eligibility, works with an existing mortgage, retains full lifetime control, avoids probate, and gives beneficiaries a stepped-up basis. Michigan does NOT have a transfer-on-death deed statute for real property.",
+        "Michigan recognizes Lady Bird (enhanced life estate) deeds. Depending on the deed language and the owner's facts, this approach may preserve control and may support probate avoidance; homestead/PRE, Medicaid, mortgage, transfer-tax, and basis results require fact-specific review. Michigan does not have a general transfer-on-death deed statute for real property.",
       sources: [
         S("Plunkett Cooney — MI Lady Bird Deeds", "https://www.plunkettcooney.com/tax-law-estate-plans-probate-business-succession/Michigan-lady-bird-deed"),
         S("Noble Notary — MI Ladybird Deed Forms", "https://www.noblenotarysigningservice.agency/legal-forms/michigan-ladybird-deed-forms"),

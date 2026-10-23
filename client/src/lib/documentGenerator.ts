@@ -25,15 +25,20 @@ function header(title: string): string[] {
 }
 
 /** Notary acknowledgment block keyed to the notary county. */
-function notaryBlock(plan: EstatePlan, signerLabel: string): string[] {
-  const stateName = getState(plan.primaryStateCode)?.name ?? plan.primaryStateCode;
-  const county = plan.notaryCounty || "____________________";
+function notaryBlock(
+  plan: EstatePlan,
+  signerLabel: string,
+  stateCode = plan.primaryStateCode,
+  county = plan.notaryCounty
+): string[] {
+  const stateName = getState(stateCode)?.name ?? stateCode;
+  const notaryCounty = county || "____________________";
   return [
     "",
     "ACKNOWLEDGMENT",
     "",
     `STATE OF ${stateName.toUpperCase()}`,
-    `COUNTY OF ${county.toUpperCase()}`,
+    `COUNTY OF ${notaryCounty.toUpperCase()}`,
     "",
     `On this ______ day of ________________, 20____, before me personally appeared`,
     `${signerLabel}, known to me (or satisfactorily proven) to be the person whose name is`,
@@ -222,7 +227,7 @@ function deedForProperty(plan: EstatePlan, p: Property): GeneratedDocument | nul
     body.push("");
     body.push(granteeDesc);
     body.push(...signatureLine(s, "Grantor"));
-    body.push(...notaryBlock(plan, s + ", Grantor"));
+    body.push(...notaryBlock(plan, s + ", Grantor", p.stateCode, p.county));
   };
 
   switch (p.transferMethod) {
@@ -240,7 +245,9 @@ function deedForProperty(plan: EstatePlan, p: Property): GeneratedDocument | nul
       body.push("Upon the death of the Grantor, the remainder passes to:");
       body.push(`   ${grantee}`);
       body.push("");
-      legalAndSig("This conveyance preserves the homestead exemption and is intended to avoid probate.");
+      legalAndSig(
+        "This template is for review only; any homestead, tax, Medicaid, mortgage, and probate effects depend on the facts and final deed language."
+      );
       break;
     }
     case "tod": {
@@ -289,7 +296,7 @@ function deedForProperty(plan: EstatePlan, p: Property): GeneratedDocument | nul
       body.push("LEGAL DESCRIPTION:");
       body.push(legalDesc(p));
       body.push(...signatureLine(seller, "Grantor / Seller"));
-      body.push(...notaryBlock(plan, seller + ", Grantor"));
+      body.push(...notaryBlock(plan, seller + ", Grantor", p.stateCode, p.county));
       break;
     }
     case "quit_claim_to_trust":
@@ -349,7 +356,7 @@ function llcOperatingAgreement(plan: EstatePlan): GeneratedDocument {
   body.push("Distributions are made to the member at the member's discretion. On the member's death, the");
   body.push("membership interest passes per the terms of the member trust, avoiding probate.");
   body.push(...signatureLine(s, plan.llc.soleMemberIsTrust ? "Trustee, Sole Member" : "Sole Member"));
-  body.push(...notaryBlock(plan, s + ", Member"));
+  body.push(...notaryBlock(plan, s + ", Member", plan.llc.stateCode || plan.primaryStateCode));
   return { kind: "llc_operating_agreement", title: `Operating Agreement — ${llcName}`, body: body.join("\n") };
 }
 
@@ -374,7 +381,7 @@ function purchaseAgreement(plan: EstatePlan, p: Property): GeneratedDocument {
   }
   body.push(...signatureLine(seller, "Seller"));
   body.push(...signatureLine(settlorName(plan), "Buyer"));
-  body.push(...notaryBlock(plan, "the parties"));
+  body.push(...notaryBlock(plan, "the parties", p.stateCode, p.county));
   return { kind: "purchase_agreement", title: `Purchase Agreement — ${propRef(p)}`, propertyId: p.id, body: body.join("\n") };
 }
 
@@ -383,7 +390,11 @@ function promissoryNote(plan: EstatePlan): GeneratedDocument {
   const tn = trustName(plan);
   const llcName = plan.llc.name || "[LLC NAME], LLC";
   const src = plan.properties.find((p) => p.id === plan.funding.helocSourcePropertyId);
-  const value = src ? ((src.marketValueLow ?? 0) + (src.marketValueHigh ?? 0)) / 2 || src.assessedValue || 0 : 0;
+  const value = src
+    ? src.marketValueLow != null && src.marketValueHigh != null
+      ? (src.marketValueLow + src.marketValueHigh) / 2
+      : src.marketValueLow ?? src.marketValueHigh ?? src.assessedValue ?? 0
+    : 0;
   const equity = src ? Math.max(0, value - (src.mortgageBalance ?? 0)) : 0;
   const principal = equity ? Math.round(value * 0.85 - (src?.mortgageBalance ?? 0)) : 0;
   const rate = plan.funding.estimatedRate ? (plan.funding.estimatedRate * 100).toFixed(2) + "%" : "____%";
@@ -414,7 +425,18 @@ function transferAffidavit(plan: EstatePlan, p: Property): GeneratedDocument | n
   const aff = ps.propertyTaxAffidavit;
   const s = settlorName(plan);
   const body: string[] = [];
-  body.push(...header(`${aff.formName} — ${propRef(p)}`));
+  const title =
+    ps.code === "MI"
+      ? `Michigan Property Transfer Affidavit Worksheet — ${propRef(p)}`
+      : `${aff.formName} Worksheet — ${propRef(p)}`;
+  body.push(...header(title));
+  if (ps.code === "MI") {
+    body.push(
+      "This is an informational worksheet, not the official Michigan Treasury form. Obtain and complete the current official form before filing."
+    );
+    body.push("Official resource: https://www.michigan.gov/taxes/property/transfer-affidavit");
+    body.push("");
+  }
   body.push(`State: ${ps.name}`);
   body.push(`County: ${p.county || "[COUNTY]"}`);
   body.push(`Property: ${p.address || "[ADDRESS]"}`);
@@ -435,7 +457,7 @@ function transferAffidavit(plan: EstatePlan, p: Property): GeneratedDocument | n
   }
   body.push(aff.notes);
   body.push(...signatureLine(s, "Transferor"));
-  return { kind: "transfer_affidavit", title: `${aff.formName}`, propertyId: p.id, body: body.join("\n") };
+  return { kind: "transfer_affidavit", title, propertyId: p.id, body: body.join("\n") };
 }
 
 function leadPaintDisclosure(plan: EstatePlan, p: Property): GeneratedDocument {

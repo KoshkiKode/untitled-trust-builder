@@ -24,6 +24,15 @@ import { fmtUSD } from "@/lib/constants";
 
 const states = allSelectableStates();
 
+function transferOptions(stateCode: string, llcOwned: boolean) {
+  const mechanisms = getState(stateCode)?.deed.mechanisms ?? [];
+  return TRANSFER_METHOD_OPTIONS.filter((option) => {
+    if (option.value === "warranty_deed_purchase") return llcOwned;
+    if (option.value === "quit_claim_to_trust") return true;
+    return mechanisms.includes(option.value);
+  });
+}
+
 function numOrUndef(v: string): number | undefined {
   if (v === "") return undefined;
   const n = Number(v.replace(/[^0-9.]/g, ""));
@@ -355,7 +364,7 @@ export function StepProperties() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {TRANSFER_METHOD_OPTIONS.map((o) => (
+                      {transferOptions(p.stateCode, p.llcOwned).map((o) => (
                         <SelectItem key={o.value} value={o.value}>
                           {o.label}
                         </SelectItem>
