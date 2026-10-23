@@ -28,7 +28,7 @@ function header(title: string): string[] {
 function notaryBlock(
   plan: EstatePlan,
   signerLabel: string,
-  stateCode = plan.primaryStateCode,
+  stateCode = plan.notaryStateCode || plan.primaryStateCode,
   county = plan.notaryCounty
 ): string[] {
   const stateName = getState(stateCode)?.name ?? stateCode;
@@ -227,7 +227,7 @@ function deedForProperty(plan: EstatePlan, p: Property): GeneratedDocument | nul
     body.push("");
     body.push(granteeDesc);
     body.push(...signatureLine(s, "Grantor"));
-    body.push(...notaryBlock(plan, s + ", Grantor", p.stateCode, p.county));
+    body.push(...notaryBlock(plan, s + ", Grantor"));
   };
 
   switch (p.transferMethod) {
@@ -296,7 +296,7 @@ function deedForProperty(plan: EstatePlan, p: Property): GeneratedDocument | nul
       body.push("LEGAL DESCRIPTION:");
       body.push(legalDesc(p));
       body.push(...signatureLine(seller, "Grantor / Seller"));
-      body.push(...notaryBlock(plan, seller + ", Grantor", p.stateCode, p.county));
+      body.push(...notaryBlock(plan, seller + ", Grantor"));
       break;
     }
     case "quit_claim_to_trust":
@@ -381,7 +381,7 @@ function purchaseAgreement(plan: EstatePlan, p: Property): GeneratedDocument {
   }
   body.push(...signatureLine(seller, "Seller"));
   body.push(...signatureLine(settlorName(plan), "Buyer"));
-  body.push(...notaryBlock(plan, "the parties", p.stateCode, p.county));
+  body.push(...notaryBlock(plan, "the parties"));
   return { kind: "purchase_agreement", title: `Purchase Agreement — ${propRef(p)}`, propertyId: p.id, body: body.join("\n") };
 }
 
@@ -522,8 +522,7 @@ export function generateDocuments(plan: EstatePlan): GeneratedDocument[] {
   if (plan.buildYear != null && plan.buildYear < 1978) {
     const target =
       plan.properties.find((p) => p.id === plan.funding.targetPurchasePropertyId) ||
-      plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase") ||
-      plan.properties[0];
+      plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase");
     if (target) docs.push(leadPaintDisclosure(plan, target));
   }
 

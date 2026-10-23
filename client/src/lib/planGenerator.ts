@@ -86,7 +86,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
   } else {
     exec.push("");
     exec.push(
-      "No LLC is enabled in this version of the plan. All real property is routed through the trust directly. If a rental or investment property is added later, forming an LLC is recommended to isolate tenant/liability exposure from the homestead."
+      "No LLC is enabled in this version of the plan. Non-LLC property is routed through the trust directly. If a rental or investment property is added later, forming an LLC may help isolate tenant/liability exposure from the homestead, subject to separate-entity practices and insurance."
     );
   }
   exec.push("");

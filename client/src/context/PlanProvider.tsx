@@ -23,6 +23,7 @@ export function emptyPlan(): EstatePlan {
     successorTrustee: "",
     trustName: "",
     notaryCounty: "",
+    notaryStateCode: "MI",
     beneficiaries: [],
     properties: [],
     llc: { enabled: false, name: "", stateCode: "", registeredAgent: "", soleMemberIsTrust: true },
