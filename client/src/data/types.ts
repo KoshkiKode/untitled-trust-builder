@@ -66,6 +66,7 @@ export interface EstatePlan {
   successorTrustee?: string;
   trustName?: string; // e.g. "The Jordan A. Whitfield Revocable Living Trust"
   notaryCounty?: string; // county where notarization occurs
+  notaryStateCode?: string; // state where signing/notarization occurs
 
   beneficiaries: Beneficiary[];
   properties: Property[];

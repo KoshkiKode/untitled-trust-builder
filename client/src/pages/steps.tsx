@@ -134,13 +134,30 @@ export function StepJurisdiction() {
             )}
           </div>
         </Field>
-        <Field label="Notary county" hint="County where signing/notarization will occur.">
-          <Input
-            data-testid="input-notary-county"
-            placeholder="e.g. Franklin"
-            value={plan.notaryCounty ?? ""}
-            onChange={(e) => patch({ notaryCounty: e.target.value })}
-          />
+        <Field label="Signing / notary venue" hint="Use the actual state and county where the document will be signed or notarized.">
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Select
+              value={plan.notaryStateCode || plan.primaryStateCode}
+              onValueChange={(v) => patch({ notaryStateCode: v })}
+            >
+              <SelectTrigger data-testid="select-notary-state">
+                <SelectValue placeholder="State" />
+              </SelectTrigger>
+              <SelectContent>
+                {states.map((s) => (
+                  <SelectItem key={s.code} value={s.code}>
+                    {s.code} — {s.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Input
+              data-testid="input-notary-county"
+              placeholder="County"
+              value={plan.notaryCounty ?? ""}
+              onChange={(e) => patch({ notaryCounty: e.target.value })}
+            />
+          </div>
         </Field>
       </div>
 
