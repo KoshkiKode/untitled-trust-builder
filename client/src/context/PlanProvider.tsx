@@ -9,6 +9,7 @@ import type {
   BusinessPlan,
   GeneratedDocument,
 } from "@/data/types";
+import { defaultTransferMethod } from "@/lib/transferDefaults";
 
 let _id = 0;
 export function uid(prefix = "id"): string {
@@ -106,7 +107,7 @@ export function PlanProvider({ children }: { children: ReactNode }) {
           legalDescription: "",
           use: "primary_residence",
           ownedFreeAndClear: false,
-          transferMethod: "quit_claim_to_trust",
+          transferMethod: defaultTransferMethod(prev.primaryStateCode, "primary_residence", false),
           llcOwned: false,
         },
       ],

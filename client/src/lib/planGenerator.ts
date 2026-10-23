@@ -106,9 +106,17 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
     tb.push(t.notes);
     tb.push("");
     tb.push(`Execution formalities in ${stateName}:`);
-    tb.push(`  • Notarization required: ${t.notarizationRequired ? "Yes" : "No"}`);
     tb.push(
-      `  • Witnesses required: ${t.witnessesRequired === 0 ? "None (notarization suffices)" : t.witnessesRequired}`
+      `  • Notarization required by the researched state data: ${t.notarizationRequired ? "Yes" : "No"}${
+        t.notarizationRequired ? "" : " (may still be practical for institutions and related conveyances)"
+      }`
+    );
+    tb.push(
+      `  • Witnesses required by the researched state data: ${
+        t.witnessesRequired === 0
+          ? "None listed"
+          : t.witnessesRequired
+      }`
     );
     tb.push(
       `  • Certificate of trust recognized: ${t.certificateOfTrustRecognized ? "Yes — use it to prove authority without disclosing the full trust" : "No"}`
@@ -129,7 +137,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
       id: "trust-foundation",
       title: "Trust Foundation",
       body: [
-        `Detailed trust data for ${stateName} has not yet been researched in this version. The generic templates assume a notarized revocable living trust treated as a grantor trust during life. Verify ${stateName}'s execution formalities (notary and witness requirements) before signing.`,
+        `Detailed trust data for ${stateName} has not yet been researched in this version. The generic templates are informational only and do not establish execution formalities. Verify ${stateName}'s current requirements (including any notary and witness requirements) before signing.`,
       ],
     });
   }
@@ -149,25 +157,31 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
     deedBody.push("Recommended handling, property by property:");
     plan.properties.forEach((p) => {
       const label = p.label || p.address || "Unnamed property";
+      const propertyState = getState(p.stateCode);
+      const propertyDeed = propertyState?.deed;
+      const propertyStateName = propertyState?.name ?? p.stateCode;
+      const propertyMechanism = propertyDeed?.primaryMechanism;
       let rec = "";
       if (p.llcOwned) {
         rec = `Hold in ${llcName}. Convey by warranty deed at acquisition (or quit-claim from the Settlor into the LLC), then the LLC membership interest passes through the trust.`;
-      } else if (prim === "lady_bird") {
+      } else if (propertyMechanism === "lady_bird") {
         if (p.use === "primary_residence") {
-          rec = `Use a Lady Bird deed. It preserves the homestead / Principal Residence Exemption and Medicaid eligibility, works with the existing mortgage${
+          rec = `Consider a Lady Bird deed. Depending on the deed language and the owner's facts, it may preserve control and support probate avoidance; homestead/PRE, Medicaid, mortgage, and basis results require review under ${propertyStateName} law${
             (p.mortgageBalance ?? 0) > 0 ? ` (balance ${fmtUSD(p.mortgageBalance)})` : ""
-          }, keeps full lifetime control, and avoids probate with a stepped-up basis to the beneficiaries.`;
+          }.`;
         } else {
-          rec = `Either a Lady Bird deed (retains control, avoids probate) or a quit-claim transfer into ${trustName}. For non-homestead property, transferring into the trust is often cleaner.`;
+          rec = `Consider a Lady Bird deed or a transfer into ${trustName}; the better choice depends on the property, title, tax, and benefit facts.`;
         }
-      } else if (prim === "tod" || prim === "tod_affidavit") {
-        rec = `Use the ${mechanismLabel(prim)} to name the beneficiaries directly, OR transfer the property into ${trustName} by quit-claim deed. ${
+      } else if (propertyMechanism === "tod" || propertyMechanism === "tod_affidavit") {
+        rec = `Consider the ${mechanismLabel(propertyMechanism)} to name beneficiaries directly, or transfer the property into ${trustName} by quit-claim deed. ${
           (p.mortgageBalance ?? 0) > 0
             ? "Both options work alongside the existing mortgage (a due-on-sale clause is generally not triggered by an estate-planning transfer to your own trust under the Garn-St. Germain Act)."
             : ""
         }`;
-      } else if (prim === "trust_only") {
-        rec = `${stateName} has no statutory TOD deed and does not recognize Lady Bird deeds, so transfer this property DIRECTLY into ${trustName} by deed. The trust is the probate-avoidance vehicle here.`;
+      } else if (propertyMechanism === "trust_only") {
+        rec = `${propertyStateName} has no researched statutory TOD deed or Lady Bird deed, so consider transferring this property into ${trustName} by deed. Verify the county recording and tax requirements.`;
+      } else {
+        rec = `Property-specific deed data for ${propertyStateName} is incomplete. Use a qualified local review before selecting a transfer instrument.`;
       }
       deedBody.push(`  • ${label} (${transferMethodLabel(p.transferMethod)} selected): ${rec}`);
     });
@@ -240,10 +254,15 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
   }
 
   // ---------- Transfer Tax Estimates ----------
-  if (state?.complete && state.transferTax) {
-    const tt = state.transferTax;
+  const acquisitionProperty =
+    (plan.funding.targetPurchasePropertyId &&
+      plan.properties.find((p) => p.id === plan.funding.targetPurchasePropertyId)) ||
+    plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase");
+  const taxState = getState(acquisitionProperty?.stateCode ?? plan.primaryStateCode);
+  if (taxState?.complete && taxState.transferTax) {
+    const tt = taxState.transferTax;
     const ttb: string[] = [];
-    ttb.push(`${stateName} transfer tax: ${tt.stateRateDescription}.`);
+    ttb.push(`${taxState.name} transfer tax for the selected acquisition/property: ${tt.stateRateDescription}.`);
     ttb.push(
       `Approximate combined rate used for estimates: ${fmtPct(tt.approxCombinedRate)} of price.`
     );
@@ -271,12 +290,14 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
       );
     }
     plan.properties.forEach((p) => {
+      const propertyState = getState(p.stateCode);
+      if (!propertyState?.complete || !propertyState.transferTax) return;
       const v = midValue(p);
       if (v > 0) {
         ttb.push(
-          `  • ${p.label || p.address}: a non-exempt transfer at ~${fmtUSD(v)} would carry ≈ ${fmtUSD(
-            v * tt.approxCombinedRate
-          )} in transfer tax (likely $0 if the trust/family exemption applies).`
+          `  • ${p.label || p.address} (${propertyState.name}): a non-exempt transfer at ~${fmtUSD(v)} would carry ≈ ${fmtUSD(
+            v * propertyState.transferTax.approxCombinedRate
+          )} in transfer tax (likely $0 only if a current exemption applies).`
         );
       }
     });
