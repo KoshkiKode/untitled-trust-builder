@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Download, FileText, BookOpen, ArrowLeft, Loader2, AlertCircle } from "lucide-react";
+import { Download, FileText, BookOpen, ArrowLeft, Loader2, AlertCircle, Info } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { usePlan } from "@/context/PlanProvider";
 import { renderTextPdf, renderBooklet } from "@/lib/pdf";
-import { fmtUSD } from "@/lib/constants";
+import { DISCLAIMER, fmtUSD } from "@/lib/constants";
 import { useToast } from "@/hooks/use-toast";
 import type { GeneratedDocument } from "@/data/types";
 
@@ -100,6 +100,12 @@ export default function Results() {
         </h1>
         <p className="mt-1 text-muted-foreground">{businessPlan.subtitle}</p>
         <p className="mt-1 text-xs text-muted-foreground">Generated {businessPlan.generatedAt}</p>
+        <div className="mt-5 flex gap-3 rounded-xl border border-border bg-muted/40 p-4" role="note">
+          <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Not legal advice:</span> {DISCLAIMER}
+          </p>
+        </div>
 
         <Tabs defaultValue="plan" className="mt-8">
           <TabsList data-testid="tabs-results">

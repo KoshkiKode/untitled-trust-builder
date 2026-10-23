@@ -1,6 +1,8 @@
 # Untitled Trust Builder — Build Spec
 
-A questionnaire-driven **trust + LLC + estate business-plan and legal-document generator**. 100% client-side. No backend persistence needed. Target platforms: Windows, macOS, Linux (desktop) and Android, iOS (mobile), plus the browser. Owned by KoshkiKode.
+A questionnaire-driven **trust + LLC + estate planning-material and document-template generator**. 100% client-side. No backend persistence needed. Target platforms: Windows, macOS, Linux (desktop) and Android, iOS (mobile), plus the browser. Owned by KoshkiKode.
+
+This is an informational app, not a law firm or legal service. It does not provide legal advice, and generated materials are templates for review rather than completed, guaranteed-valid, or recordable legal documents.
 
 ## What it does
 1. User answers a multi-step **questionnaire** describing their estate: settlor identity, beneficiaries + shares, properties (with state/county/parcels), whether to form an LLC, and funding (HELOC) details.
@@ -30,7 +32,7 @@ A questionnaire-driven **trust + LLC + estate business-plan and legal-document g
   7. **Review** — summarize; "Generate Plan & Documents".
 - `/results` — Two tabs:
   - **Business Plan** — rendered plan sections, cost tables, outstanding items. Buttons: "Download Plan PDF".
-  - **Documents** — list of generated documents with per-doc "Download PDF" + "Download All-in-One Booklet PDF".
+  - **Documents** — list of generated document templates with per-doc "Download PDF" + "Download All-in-One Booklet PDF".
 
 ## Generation logic (build these modules)
 - `client/src/lib/planGenerator.ts` — `generatePlan(plan: EstatePlan): BusinessPlan`. Mirror the structure/intelligence of the Michigan v4 plan but DRIVEN BY DATA:
@@ -43,7 +45,7 @@ A questionnaire-driven **trust + LLC + estate business-plan and legal-document g
   - Cost summary (setup + annual) built from real fees.
   - Outstanding items (successor trustee, LLC name, etc. if blank).
   - Include source citations (use the `sources` arrays from `STATES`) as footnotes in relevant sections.
-- `client/src/lib/documentGenerator.ts` — `generateDocuments(plan: EstatePlan): GeneratedDocument[]`. Produce plain-text bodies for each applicable doc with the user's actual data filled in (names, parcels, legal descriptions, shares, notary county acknowledgment block matching `notaryCounty`). Pick deeds based on each property's `transferMethod`. Include lead-paint disclosure only if `buildYear < 1978`. Each document body must include a clear "TEMPLATE — REVIEW BEFORE USE" header and proper notary acknowledgment block.
+- `client/src/lib/documentGenerator.ts` — `generateDocuments(plan: EstatePlan): GeneratedDocument[]`. Produce plain-text bodies for each applicable doc with the user's actual data filled in (names, parcels, legal descriptions, shares, notary county acknowledgment block matching `notaryCounty`). Pick deeds based on each property's `transferMethod`. Include lead-paint disclosure only if `buildYear < 1978`. Each document body must include a clear "TEMPLATE — REVIEW BEFORE USE" header, an explicit "NOT LEGAL ADVICE" notice, and proper notary acknowledgment block.
 - `client/src/lib/pdf.ts` — `pdf-lib` helpers: `renderTextPdf(title, body)` and `renderBooklet(plan, docs)` (cover page + table of contents + each section/doc, page numbers, footer disclaimer). Trigger download via Blob + anchor (no FileSaver dependency required, but ok to add `file-saver`). Word-wrap text to page width; multi-page support; never overflow.
 
 ## Design direction

@@ -5,14 +5,23 @@ import type {
   DocumentKind,
 } from "@/data/types";
 import { getState } from "@/data/states";
-import { TEMPLATE_HEADER, fmtUSD, fmtRange } from "./constants";
+import { DISCLAIMER, TEMPLATE_HEADER, fmtUSD, fmtRange } from "./constants";
 
 function hr(): string {
   return "________________________________________________________________";
 }
 
 function header(title: string): string[] {
-  return [TEMPLATE_HEADER, "", title.toUpperCase(), hr(), ""];
+  return [
+    TEMPLATE_HEADER,
+    "",
+    "INFORMATIONAL MATERIALS ONLY — NOT LEGAL ADVICE",
+    DISCLAIMER,
+    "",
+    title.toUpperCase(),
+    hr(),
+    "",
+  ];
 }
 
 /** Notary acknowledgment block keyed to the notary county. */

@@ -1,16 +1,16 @@
 # Untitled Trust Builder
 
-A questionnaire-driven **trust, LLC, and estate business-plan generator** that also produces pre-filled legal-document templates — all generated **entirely on-device**, no data leaves your machine.
+A questionnaire-driven **trust, LLC, and estate planning-material generator** that produces pre-filled document templates for review — all generated **entirely on-device**, no data leaves your machine.
 
 Built by [KoshkiKode LLC](https://github.com/KoshkiKode).
 
-> ⚠️ **Disclaimer.** This tool produces informational planning materials and document templates, **not legal advice**. Laws and fees change and vary by locality. Review every document and verify current requirements with the relevant county/state offices (or a professional) before signing, recording, or filing.
+> ⚠️ **Important use notice.** This is an app that creates informational trust and estate document templates. It is **not a law firm, does not provide legal advice, and does not replace a licensed attorney or other qualified professional**. Laws and fees change and vary by locality. Review every output and verify current requirements with the relevant county/state offices before signing, recording, or filing.
 
 ## What it does
 
 1. **Answer a guided questionnaire** — settlor identity, beneficiaries and shares, properties (state / county / parcels / use / value / mortgage), an optional LLC, and any HELOC-funded acquisition.
 2. **Get a tailored business plan** — a two-tier (revocable living trust + LLC) structure with a state-aware deed strategy, real LLC filing fees and report cadence, transfer-tax estimates, HELOC / CLTV funding math, a liability-architecture explanation, and a full cost summary — with sourced citations.
-3. **Download the documents** — pre-filled templates (trust agreement, pour-over will, certificate of trust, deeds, LLC operating agreement, purchase agreement, promissory note, transfer affidavit, lead-based-paint disclosure) as individual PDFs or one all-in-one booklet.
+3. **Download the documents** — pre-filled templates (trust agreement, pour-over will, certificate of trust, deeds, LLC operating agreement, purchase agreement, promissory note, transfer affidavit, lead-based-paint disclosure) as individual PDFs or one all-in-one booklet. Every PDF is labeled as informational and includes the disclaimer.
 
 ## Jurisdiction coverage
 
@@ -34,7 +34,7 @@ Every other US state and territory is selectable (with generic templates and a "
 - **Frontend:** Vite + React + TypeScript, Tailwind CSS, shadcn/ui. 100% client-side — no backend, no database.
 - **PDF generation:** `pdf-lib` (on-device).
 - **Desktop:** Tauri 2 — Windows, macOS, Linux.
-- **Mobile:** Capacitor — Android, iOS.
+- **Mobile:** Capacitor 8 — Android, iOS.
 
 ## Develop
 
@@ -51,6 +51,8 @@ npm run build        # static web bundle → dist/public
 npm run tauri:build  # desktop installers
 npm run cap:sync     # sync web build into native mobile projects
 ```
+
+The app is client-side and keeps questionnaire data in the current app session. It does not provide legal advice or guarantee that a generated template is valid, complete, recordable, or appropriate for a particular person, property, transaction, or jurisdiction.
 
 Desktop icons live in `src-tauri/icons/` and are generated from `src-tauri/app-icon.svg`:
 
@@ -74,7 +76,7 @@ A tag push builds:
 
 **macOS and iOS are opt-in** while there is no Apple Developer account: run the workflow manually (Actions → Build → Run workflow) and tick `include_apple`. Tag pushes never build them.
 
-The Android job uses Java 17 on purpose: Capacitor 6 generates a Gradle 8.2.1 project, which cannot run on Java 21. Move to Java 21 only together with Capacitor 7+.
+The Android job uses Java 21 for Capacitor 8 compatibility.
 
 ## License
 

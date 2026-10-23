@@ -54,7 +54,7 @@ export default function Landing() {
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground" data-testid="text-value-prop">
               Answer a guided questionnaire and generate a tailored business plan plus ready-to-review
-              legal document templates — entirely in your browser, with no data leaving your device.
+              informational document templates for review — entirely in your browser, with no data leaving your device.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/build" data-testid="link-start-plan">
@@ -78,7 +78,7 @@ export default function Landing() {
       {/* How it works */}
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <h2 className="font-serif text-2xl font-semibold tracking-tight text-foreground">How it works</h2>
-        <p className="mt-2 text-muted-foreground">Three steps from questions to recordable-ready templates.</p>
+        <p className="mt-2 text-muted-foreground">Three steps from questions to review-first templates.</p>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {STEPS.map((s, i) => (
             <div
