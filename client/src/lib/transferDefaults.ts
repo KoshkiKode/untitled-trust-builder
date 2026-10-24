@@ -1,5 +1,5 @@
 import type { PropertyUse, TransferMethod } from "@/data/types";
-import { getState } from "@/data/states";
+import { getState } from "@/data/jurisdictions";
 
 /** Default transfer method given the property's state mechanism + use + LLC flag. */
 export function defaultTransferMethod(

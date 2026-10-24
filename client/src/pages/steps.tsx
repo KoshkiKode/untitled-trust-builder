@@ -1,7 +1,7 @@
 import { useLocation } from "wouter";
 import { Plus, Trash2, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { usePlan } from "@/context/PlanProvider";
-import { allSelectableStates, getState } from "@/data/states";
+import { allSelectableStates, getState, hasCoreData, isGroupUsable } from "@/data/jurisdictions";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -72,14 +72,14 @@ export function StepJurisdiction() {
             <SelectContent>
               {states.map((s) => (
                 <SelectItem key={s.code} value={s.code}>
-                  {s.name} {s.complete ? "" : "(coming soon)"}
+                  {s.name} {s.core ? "" : "(coming soon)"}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </Field>
         <div className="flex items-end">
-          {getState(plan.primaryStateCode)?.complete ? (
+          {hasCoreData(getState(plan.primaryStateCode)) ? (
             <Badge variant="secondary" className="gap-1.5" data-testid="badge-state-status">
               <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
               Full legal data available
@@ -544,7 +544,7 @@ export function StepLlc() {
             <span className="text-sm">The trust is the sole member of the LLC (recommended)</span>
           </label>
 
-          {getState(plan.llc.stateCode || plan.primaryStateCode)?.complete && (
+          {isGroupUsable(getState(plan.llc.stateCode || plan.primaryStateCode), "llc") && (
             <div className="rounded-lg border border-border bg-muted/40 p-4 text-sm text-muted-foreground" data-testid="text-llc-fees">
               {(() => {
                 const l = getState(plan.llc.stateCode || plan.primaryStateCode)!.llc;

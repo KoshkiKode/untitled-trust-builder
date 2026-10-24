@@ -136,7 +136,10 @@
       }
     ],
     "confidence": "verified",
-    "unverifiedFields": []
+    "unverifiedFields": [
+      "sources[1]",
+      "sources[2]"
+    ]
   },
   "propertyTaxAffidavit": {
     "required": true,
@@ -161,7 +164,9 @@
       }
     ],
     "confidence": "verified",
-    "unverifiedFields": []
+    "unverifiedFields": [
+      "sources[0]"
+    ]
   },
   "recording": {
     "feeLow": 13,

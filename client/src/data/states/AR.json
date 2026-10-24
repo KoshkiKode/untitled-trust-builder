@@ -136,7 +136,10 @@
       }
     ],
     "confidence": "verified",
-    "unverifiedFields": []
+    "unverifiedFields": [
+      "sources[1]",
+      "sources[2]"
+    ]
   },
   "propertyTaxAffidavit": {
     "required": true,
@@ -155,8 +158,11 @@
         "quote": "An affidavit or compliance form from the Department of Finance and Administration or a receipt showing proof of tax paid is not required to be attached to an instrument that is exempt from the payment of the real property transfer tax"
       }
     ],
-    "confidence": "verified",
-    "unverifiedFields": []
+    "confidence": "partial",
+    "unverifiedFields": [
+      "sources[0]",
+      "sources[1]"
+    ]
   },
   "recording": {
     "feeLow": 15,

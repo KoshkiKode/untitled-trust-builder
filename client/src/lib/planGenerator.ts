@@ -5,7 +5,7 @@ import type {
   CostLine,
   Property,
 } from "@/data/types";
-import { getState, type StateLaw, type SourceRef } from "@/data/states";
+import { getState, hasCoreData, isGroupUsable, type ExecutionRule, type StateLaw, type SourceRef } from "@/data/jurisdictions";
 import { fmtUSD, fmtRange, fmtPct } from "./constants";
 
 /** Format a state's sources array into footnote lines. */
@@ -42,6 +42,24 @@ function transferMethodLabel(m: string): string {
       return "Warranty deed (purchase)";
     default:
       return m;
+  }
+}
+
+function executionText(rule: ExecutionRule): string {
+  const w = rule.witnesses === 1 ? "one witness" : `${rule.witnesses} witnesses`;
+  switch (rule.mode) {
+    case "none":
+      return "no notary or witnesses required for validity (a notary is still commonly requested)";
+    case "notary":
+      return "notary acknowledgment required";
+    case "witnesses":
+      return `${w} required`;
+    case "witnesses_or_notary":
+      return `notary acknowledgment or ${w}`;
+    case "witnesses_and_notary":
+      return `notary acknowledgment and ${w}`;
+    default:
+      return "not yet verified — plan for both a notary acknowledgment and two witnesses";
   }
 }
 
@@ -100,29 +118,24 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
   sections.push({ id: "executive-summary", title: "Executive Summary", body: exec });
 
   // ---------- Trust Foundation ----------
-  if (state?.complete && state.trust) {
+  if (state && isGroupUsable(state, "trust")) {
     const t = state.trust;
     const tb: string[] = [];
     tb.push(t.notes);
     tb.push("");
     tb.push(`Execution formalities in ${stateName}:`);
+    tb.push(`  • Execution formalities (${stateName} data): ${executionText(t.execution)}`);
     tb.push(
-      `  • Notarization required by the researched state data: ${t.notarizationRequired ? "Yes" : "No"}${
-        t.notarizationRequired ? "" : " (may still be practical for institutions and related conveyances)"
+      `  • Certificate of trust recognized: ${
+        t.certificationOfTrust.recognized === true
+          ? "Yes — use it to prove authority without disclosing the full trust"
+          : t.certificationOfTrust.recognized === false
+            ? "No"
+            : "not yet verified for this state"
       }`
     );
     tb.push(
-      `  • Witnesses required by the researched state data: ${
-        t.witnessesRequired === 0
-          ? "None listed"
-          : t.witnessesRequired
-      }`
-    );
-    tb.push(
-      `  • Certificate of trust recognized: ${t.certificateOfTrustRecognized ? "Yes — use it to prove authority without disclosing the full trust" : "No"}`
-    );
-    tb.push(
-      `  • Grantor trust during life: ${t.grantorTrustDuringLife ? "Yes — personal 1040, no separate 1041" : "No"}`
+      "  • Grantor trust during life: while you serve as trustee, a revocable trust is treated as owned by you for income tax (IRC § 676), so income is reported on your personal Form 1040 with no separate Form 1041."
     );
     if (plan.notaryCounty) {
       tb.push("");
@@ -144,7 +157,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
 
   // ---------- Deed / Transfer Strategy ----------
   const deedBody: string[] = [];
-  if (state?.complete && state.deed) {
+  if (state && isGroupUsable(state, "deed")) {
     const d = state.deed;
     const prim = d.primaryMechanism;
     deedBody.push(
@@ -196,11 +209,11 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
   sections.push({ id: "deed-strategy", title: "Deed & Transfer Strategy", body: deedBody });
 
   // ---------- LLC Structure ----------
-  if (llcEnabled && llcState?.complete && llcState.llc) {
+  if (llcEnabled && llcState && isGroupUsable(llcState, "llc")) {
     const l = llcState.llc;
     const lb: string[] = [];
     lb.push(
-      `${llcName} will be organized in ${llcState.name} by filing the ${l.formationFormName} with the ${l.filingAgency}${
+      `${llcName} will be organized in ${llcState.name} by filing the ${l.formationFormName ?? "the Articles of Organization"} with the ${l.filingAgency ?? "the state filing agency"}${
         l.onlinePortal ? ` (online portal: ${l.onlinePortal})` : ""
       }.`
     );
@@ -213,7 +226,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
           : `${l.reportCadence} report, fee ${fmtUSD(l.reportFee)}`
       }`
     );
-    lb.push(`  • ${l.reportNotes}`);
+    lb.push(`  • ${l.reportDue ?? "Confirm the report deadline with the state."}`);
     lb.push(
       `  • Series LLC permitted: ${l.seriesLlcAllowed ? "Yes — additional properties can be isolated within one filing" : "No — each property needing isolation requires its own LLC"}`
     );
@@ -259,15 +272,15 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
       plan.properties.find((p) => p.id === plan.funding.targetPurchasePropertyId)) ||
     plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase");
   const taxState = getState(acquisitionProperty?.stateCode ?? plan.primaryStateCode);
-  if (taxState?.complete && taxState.transferTax) {
-    const tt = taxState.transferTax;
+  if (taxState && isGroupUsable(taxState, "transferTax")) {
+    const tt = { ...taxState.transferTax, approxCombinedRate: taxState.transferTax.approxCombinedRate ?? 0 };
     const ttb: string[] = [];
     ttb.push(`${taxState.name} transfer tax for the selected acquisition/property: ${tt.stateRateDescription}.`);
     ttb.push(
       `Approximate combined rate used for estimates: ${fmtPct(tt.approxCombinedRate)} of price.`
     );
     ttb.push("");
-    if (tt.familyExemptionAvailable) {
+    if (tt.trustTransferExempt === "yes") {
       ttb.push(
         "A family / revocable-trust exemption is generally available. Transfers from an individual to their own revocable trust usually involve no change in beneficial ownership and are exempt; verify each conveyance."
       );
@@ -291,7 +304,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
     }
     plan.properties.forEach((p) => {
       const propertyState = getState(p.stateCode);
-      if (!propertyState?.complete || !propertyState.transferTax) return;
+      if (!propertyState || !isGroupUsable(propertyState, "transferTax") || propertyState.transferTax.approxCombinedRate == null) return;
       const v = midValue(p);
       if (v > 0) {
         ttb.push(
@@ -440,12 +453,12 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
     });
   });
 
-  if (llcEnabled && llcState?.llc) {
+  if (llcEnabled && llcState && isGroupUsable(llcState, "llc")) {
     setupCosts.push({
       item: `LLC formation — ${llcName}`,
-      low: llcState.llc.formationFee,
-      high: llcState.llc.formationFee,
-      note: llcState.llc.formationFormName,
+      low: llcState.llc.formationFee ?? 0,
+      high: llcState.llc.formationFee ?? 0,
+      note: llcState.llc.formationFormName ?? undefined,
     });
     if (llcState.code === "NY") {
       setupCosts.push({
@@ -455,12 +468,12 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
         note: "Two newspapers + $50 filing; NYC counties far higher",
       });
     }
-    if (llcState.llc.reportCadence !== "none" && llcState.llc.reportFee > 0) {
+    if (llcState.llc.reportCadence !== "none" && (llcState.llc.reportFee ?? 0) > 0) {
       annualCosts.push({
         item: `LLC ${llcState.llc.reportCadence} report`,
-        low: llcState.llc.reportFee,
-        high: llcState.llc.reportFee,
-        note: llcState.llc.reportNotes,
+        low: llcState.llc.reportFee ?? 0,
+        high: llcState.llc.reportFee ?? 0,
+        note: llcState.llc.reportDue ?? undefined,
       });
     }
   }
@@ -514,7 +527,7 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
       });
     }
   });
-  if (!state?.complete) {
+  if (!hasCoreData(state)) {
     outstandingItems.push({
       item: `${stateName} data not yet researched`,
       action: "Verify trust, deed, LLC, and transfer-tax rules with the state/county before filing.",

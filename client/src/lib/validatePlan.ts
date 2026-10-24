@@ -1,5 +1,5 @@
 import type { EstatePlan } from "@/data/types";
-import { allSelectableStates, getState } from "@/data/states";
+import { allSelectableStates, getState } from "@/data/jurisdictions";
 
 const selectableStateCodes = new Set(allSelectableStates().map((state) => state.code));
 

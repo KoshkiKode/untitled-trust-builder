@@ -4,7 +4,7 @@ import type {
   Property,
   DocumentKind,
 } from "@/data/types";
-import { getState } from "@/data/states";
+import { getState, isGroupUsable } from "@/data/jurisdictions";
 import { DISCLAIMER, TEMPLATE_HEADER, fmtUSD, fmtRange } from "./constants";
 
 function hr(): string {
@@ -421,14 +421,14 @@ function promissoryNote(plan: EstatePlan): GeneratedDocument {
 
 function transferAffidavit(plan: EstatePlan, p: Property): GeneratedDocument | null {
   const ps = getState(p.stateCode);
-  if (!ps?.complete || !ps.propertyTaxAffidavit?.required) return null;
+  if (!ps || !isGroupUsable(ps, "propertyTaxAffidavit") || ps.propertyTaxAffidavit.required !== true) return null;
   const aff = ps.propertyTaxAffidavit;
   const s = settlorName(plan);
   const body: string[] = [];
   const title =
     ps.code === "MI"
       ? `Michigan Property Transfer Affidavit Worksheet — ${propRef(p)}`
-      : `${aff.formName} Worksheet — ${propRef(p)}`;
+      : `${aff.formName ?? "Transfer affidavit"} Worksheet — ${propRef(p)}`;
   body.push(...header(title));
   if (ps.code === "MI") {
     body.push(
