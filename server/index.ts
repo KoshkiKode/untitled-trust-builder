@@ -6,6 +6,7 @@ import { serveStatic } from "./static";
 import { createServer } from "node:http";
 
 const app = express();
+app.disable("x-powered-by");
 const httpServer = createServer(app);
 
 declare module "http" {
@@ -95,7 +96,8 @@ app.use((req, res, next) => {
   httpServer.listen(
     {
       port,
-      host: "0.0.0.0",
+      // Development binds to loopback only; set HOST=0.0.0.0 to reach the dev server from other devices.
+      host: process.env.HOST ?? (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1"),
       // reusePort makes listen() throw ENOTSUP on macOS and Windows
       ...(process.platform === "linux" ? { reusePort: true } : {}),
     },

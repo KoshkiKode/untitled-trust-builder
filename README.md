@@ -44,7 +44,7 @@ npm run dev          # web dev server
 npm run tauri:dev    # desktop (requires Rust toolchain)
 ```
 
-The dev server listens on port 5000 by default; set `PORT` to change it. On macOS, AirPlay Receiver already occupies port 5000, so use e.g. `PORT=5177 npm run dev`.
+The dev server listens on port 5000 by default; set `PORT` to change it. On macOS, AirPlay Receiver already occupies port 5000, so use e.g. `PORT=5177 npm run dev`. The dev server binds to `127.0.0.1` only; set `HOST=0.0.0.0` to reach it from other devices on your network.
 
 ## Build
 
