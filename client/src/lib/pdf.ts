@@ -2,6 +2,7 @@ import { PDFDocument, StandardFonts, rgb, PDFFont, PDFPage } from "pdf-lib";
 import { saveAs } from "file-saver";
 import type { BusinessPlan, GeneratedDocument, EstatePlan } from "@/data/types";
 import { DISCLAIMER, APP_NAME, APP_OWNER, fmtUSD } from "./constants";
+import { toWinAnsi } from "./textSafety";
 
 // Letter size, points
 const PAGE_W = 612;
@@ -69,9 +70,11 @@ function safeWidth(font: PDFFont, text: string, size: number): number {
   }
 }
 
-/** Sanitize text for WinAnsi-encoded standard fonts (strip unsupported glyphs). */
+let substitutionLog: Set<string> | null = null;
+
+/** Sanitize text for the WinAnsi-encoded standard fonts; substitutions are recorded for the caller. */
 function sanitize(text: string): string {
-  return text
+  const mapped = text
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201C\u201D]/g, '"')
     .replace(/[\u2013\u2014]/g, "-")
@@ -81,9 +84,21 @@ function sanitize(text: string): string {
     .replace(/\u26a0/g, "!")
     .replace(/\u2610/g, "[ ]")
     .replace(/[\u2265]/g, ">=")
+    .replace(/[\u2264]/g, "<=")
+    .replace(/[\u2260]/g, "!=")
+    .replace(/[\u2248]/g, "~")
+    .replace(/[\u2192]/g, "->")
+    .replace(/[\u2190]/g, "<-")
+    .replace(/[\u2212]/g, "-")
+    .replace(/\u2714/g, "[x]")
     .replace(/\u00a0/g, " ")
-    .replace(/[^\x00-\x7F]/g, "");
+    .replace(/\t/g, "    ")
+    .replace(/\r/g, "");
+  const { text: safe, substituted } = toWinAnsi(mapped);
+  for (const ch of substituted) substitutionLog?.add(ch);
+  return safe;
 }
+
 
 class Cursor {
   doc: PDFDocument;
@@ -213,8 +228,22 @@ function safeName(s: string): string {
   return s.replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").slice(0, 60) || "document";
 }
 
-/** Render a single text document to a downloadable PDF. */
-export async function renderTextPdf(title: string, body: string): Promise<void> {
+/** Runs a renderer and returns the characters that had to be substituted in the PDF. */
+function withSubstitutionLog(run: () => Promise<void>): Promise<string[]> {
+  substitutionLog = new Set();
+  return run()
+    .then(() => Array.from(substitutionLog ?? []))
+    .finally(() => {
+      substitutionLog = null;
+    });
+}
+
+/** Render a single text document to a downloadable PDF. Resolves to the substituted characters. */
+export function renderTextPdf(title: string, body: string): Promise<string[]> {
+  return withSubstitutionLog(() => renderTextPdfInner(title, body));
+}
+
+async function renderTextPdfInner(title: string, body: string): Promise<void> {
   const doc = await PDFDocument.create();
   const fonts = await loadFonts(doc);
   const cur = new Cursor(doc, fonts, DISCLAIMER);
@@ -246,8 +275,12 @@ export async function renderTextPdf(title: string, body: string): Promise<void> 
   triggerDownload(bytes, `${safeName(title)}.pdf`);
 }
 
-/** Render the all-in-one booklet: cover + TOC + plan sections + all documents. */
-export async function renderBooklet(
+/** Render the all-in-one booklet: cover + TOC + plan sections + all documents. Resolves to the substituted characters. */
+export function renderBooklet(plan: EstatePlan, businessPlan: BusinessPlan, docs: GeneratedDocument[]): Promise<string[]> {
+  return withSubstitutionLog(() => renderBookletInner(plan, businessPlan, docs));
+}
+
+async function renderBookletInner(
   plan: EstatePlan,
   businessPlan: BusinessPlan,
   docs: GeneratedDocument[]

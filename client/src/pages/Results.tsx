@@ -57,10 +57,16 @@ export default function Results() {
 
   const { businessPlan, documents } = result;
 
-  async function withBusy(key: string, fn: () => Promise<void>) {
+  async function withBusy(key: string, fn: () => Promise<string[] | void>) {
     try {
       setBusy(key);
-      await fn();
+      const substituted = await fn();
+      if (substituted && substituted.length > 0) {
+        toast({
+          title: "Some characters were substituted in the PDF",
+          description: `The PDF font cannot print ${substituted.join(" ")}. The on-screen text keeps the original characters. Check names and addresses in the PDF before signing.`,
+        });
+      }
     } catch (e: any) {
       toast({ title: "PDF generation failed", description: String(e?.message ?? e), variant: "destructive" });
     } finally {
