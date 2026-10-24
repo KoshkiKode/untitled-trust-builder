@@ -69,7 +69,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: web-bundle
           path: dist/public
@@ -126,7 +126,7 @@ jobs:
           prerelease: ${{ contains(github.ref, '-') }}
 
       - name: Upload desktop artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: desktop-${{ matrix.label }}
           path: |
@@ -193,7 +193,7 @@ jobs:
             -Pandroid.injected.signing.key.password=$KEY_PASSWORD
 
       - name: Upload Android artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android
           path: |
@@ -235,7 +235,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO
 
       - name: Upload iOS archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ios-archive
           path: ios/App/build/App.xcarchive
