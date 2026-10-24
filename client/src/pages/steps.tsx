@@ -401,6 +401,33 @@ export function StepProperties() {
                 />
               </Field>
 
+              <div className="grid gap-4 sm:grid-cols-3">
+                <Field label="Year built" hint="Pre-1978 housing needs a federal lead-paint disclosure.">
+                  <Input
+                    data-testid={`input-property-yearbuilt-${i}`}
+                    value={p.yearBuilt ?? ""}
+                    placeholder="e.g. 1964"
+                    onChange={(e) => updateProperty(p.id, { yearBuilt: numOrUndef(e.target.value) })}
+                  />
+                </Field>
+                <Field label="Monthly rent (if rented)">
+                  <Input
+                    data-testid={`input-property-rent-${i}`}
+                    value={p.monthlyRent ?? ""}
+                    placeholder="$"
+                    onChange={(e) => updateProperty(p.id, { monthlyRent: numOrUndef(e.target.value) })}
+                  />
+                </Field>
+                <Field label="Annual operating costs" hint="Insurance, repairs, utilities, management. Excludes taxes and debt.">
+                  <Input
+                    data-testid={`input-property-opex-${i}`}
+                    value={p.annualOperatingExpenses ?? ""}
+                    placeholder="$"
+                    onChange={(e) => updateProperty(p.id, { annualOperatingExpenses: numOrUndef(e.target.value) })}
+                  />
+                </Field>
+              </div>
+
               <div className="grid gap-4 sm:grid-cols-4">
                 <Field label="Market value (low)">
                   <Input

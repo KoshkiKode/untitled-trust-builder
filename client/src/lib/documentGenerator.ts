@@ -6,6 +6,7 @@ import type {
 } from "@/data/types";
 import { getState, isGroupUsable } from "@/data/jurisdictions";
 import { DISCLAIMER, TEMPLATE_HEADER, fmtUSD, fmtRange } from "./constants";
+import { leadPaintLeaseDocument, leadPaintSaleDocument } from "./leadDocs";
 
 function hr(): string {
   return "________________________________________________________________";
@@ -460,26 +461,6 @@ function transferAffidavit(plan: EstatePlan, p: Property): GeneratedDocument | n
   return { kind: "transfer_affidavit", title, propertyId: p.id, body: body.join("\n") };
 }
 
-function leadPaintDisclosure(plan: EstatePlan, p: Property): GeneratedDocument {
-  const seller = plan.seller?.fullName || settlorName(plan);
-  const buyer = p.llcOwned ? plan.llc.name || "[LLC NAME]" : `${settlorName(plan)}, Trustee`;
-  const body: string[] = [];
-  body.push(...header(`Lead-Based Paint Disclosure — ${propRef(p)}`));
-  body.push("Federal law (42 U.S.C. 4852d) requires this disclosure for housing built before 1978.");
-  body.push(`Property: ${p.address || "[ADDRESS]"}  (Year built: ${plan.buildYear ?? "before 1978"})`);
-  body.push("");
-  body.push("SELLER'S DISCLOSURE:");
-  body.push("  ☐ Seller has no knowledge of lead-based paint in the housing.");
-  body.push("  ☐ Known lead-based paint is present (explain): ____________________");
-  body.push("  ☐ Seller has provided the purchaser with all available records/reports.");
-  body.push("");
-  body.push("PURCHASER'S ACKNOWLEDGMENT:");
-  body.push("  ☐ Purchaser has received the pamphlet 'Protect Your Family from Lead in Your Home.'");
-  body.push("  ☐ Purchaser has received a 10-day opportunity to conduct a risk assessment or inspection.");
-  body.push(...signatureLine(seller, "Seller"));
-  body.push(...signatureLine(buyer, "Purchaser"));
-  return { kind: "lead_paint_disclosure", title: `Lead-Paint Disclosure — ${propRef(p)}`, propertyId: p.id, body: body.join("\n") };
-}
 
 // ---------------- Orchestrator ----------------
 
@@ -523,8 +504,16 @@ export function generateDocuments(plan: EstatePlan): GeneratedDocument[] {
     const target =
       plan.properties.find((p) => p.id === plan.funding.targetPurchasePropertyId) ||
       plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase");
-    if (target) docs.push(leadPaintDisclosure(plan, target));
+    if (target) {
+      const seller = plan.seller?.fullName || settlorName(plan);
+      const buyer = target.llcOwned ? plan.llc.name || "[LLC NAME]" : `${settlorName(plan)}, Trustee`;
+      docs.push(leadPaintSaleDocument(target, seller, buyer, plan.buildYear));
+    }
   }
+
+  plan.properties
+    .filter((p) => p.use === "rental" && (p.yearBuilt == null || p.yearBuilt < 1978))
+    .forEach((p) => docs.push(leadPaintLeaseDocument(plan.llc.enabled && p.llcOwned ? plan.llc.name || "[LLC NAME]" : settlorName(plan), p)));
 
   return docs;
 }

@@ -30,6 +30,11 @@ export interface Property {
   legalDescription?: string;
   acreage?: number;
   use: PropertyUse;
+  /** Year the dwelling was built; pre-1978 housing needs the federal lead-paint disclosure. */
+  yearBuilt?: number;
+  monthlyRent?: number;
+  annualOperatingExpenses?: number;
+  mortgageRate?: number;
   marketValueLow?: number;
   marketValueHigh?: number;
   assessedValue?: number;
@@ -121,7 +126,8 @@ export type DocumentKind =
   | "purchase_agreement"
   | "promissory_note"
   | "transfer_affidavit"
-  | "lead_paint_disclosure";
+  | "lead_paint_disclosure"
+  | "lease_lead_disclosure";
 
 export interface GeneratedDocument {
   kind: DocumentKind;
