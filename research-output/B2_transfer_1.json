@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "topic": "B2_transfer_1",
+    "asOf": "2026-10-24",
+    "jurisdictions": ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA"]
+  },
+  "data": {
+    "AL": {
+      "transferTax": {
+        "imposed": true,
+        "stateRateDescription": "Deed tax of $0.50 per $500 (or fraction) of value conveyed, Ala. Code § 40-22-1; two-thirds goes to the state and one-third to the county",
+        "approxCombinedRate": 0.001,
+        "trustTransferExempt": "no",
+        "familyTransferExempt": "no",
+        "llcContributionExempt": "no",
+        "notes": "Tax is based on the actual purchase price or, if not sold, the actual value of the property. Exemptions in 40-22-1(b) are narrow (mortgage transfers, corrected deeds, nominal-consideration deeds executed to perfect title); none expressly covers revocable-trust, family or LLC transfers, so county practice may differ.",
+        "sources": [
+          {
+            "label": "Alabama Department of Revenue - Recordation Tax",
+            "url": "https://www.revenue.alabama.gov/tax-types/recordation-tax/",
+            "quote": "$.50 per $500 of value or fraction thereof"
+          },
+          {
+            "label": "Ala. Code § 40-22-1(b)(2) (FindLaw)",
+            "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+            "quote": "Deeds or instruments executed for a nominal consideration for the purpose of perfecting the title to real estate."
+          },
+          {
+            "label": "Ala. Code § 40-22-1(c) (FindLaw)",
+            "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+            "quote": "if the property has not been sold, proof of the actual value of the real or personal property which is the subject of the instrument being recorded"
+          }
+        ],
+        "confidence": "partial",
+        "unverifiedFields": []
+      },
+      "propertyTaxAffidavit": {
+        "required": true,
+        "formName": "Real Estate Sales Validation Form (Form RT-1)",
+        "deadlineDays": 0,
+        "notes": "Submitted with the deed to the county probate office. The form is not needed if the deed itself states grantor and grantee names and mailing addresses, the property's physical address and the actual price or value. Houston County says state instructions require the information even for tax-exempt deeds.",
+        "sources": [
+          {
+            "label": "Ala. Code § 40-22-1(c) (FindLaw)",
+            "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+            "quote": "The Department of Revenue shall develop a form which shall be used for attesting to the actual value or actual purchase price of the property"
+          },
+          {
+            "label": "Alabama Department of Revenue - Real Estate Sales Validation Form",
+            "url": "https://www.revenue.alabama.gov/forms/real-estate-sales-validation-form/",
+            "quote": "Form Number: Form RT-1"
+          },
+          {
+            "label": "Houston County Probate Office - Recording Guidelines",
+            "url": "https://houstoncountyal.gov/probate/recording_guidelines/",
+            "quote": "even if this is a tax-exempt recording, the information and/or form will still be required for filing"
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      },
+      "recording": {
+        "feeLow": 13,
+        "feeHigh": 30,
+        "notes": "Set county by county by the judge of probate: about $13.00-$16.00 for the first page and $3.00-$5.50 for each additional page, plus $1.00 per grantor/grantee beyond two and a $1.00 no-tax-collected fee where applicable. Deed tax is separate. The RT-1 form is recorded as an extra page when used.",
+        "sources": [
+          {
+            "label": "Lauderdale County Probate Office - Recording Costs",
+            "url": "https://www.lauderdalecountyal.gov/home/departments/probate-office/recording-costs/",
+            "quote": "$16.00 for the 1st page plus $3.00 for each additional page"
+          },
+          {
+            "label": "Houston County Probate Office - Recording Guidelines",
+            "url": "https://houstoncountyal.gov/probate/recording_guidelines/",
+            "quote": "Recording Page Fees: $13.00 1st page, $3.00 each additional"
+          },
+          {
+            "label": "DeKalb County Probate Judge - Fees",
+            "url": "https://dekalbprobatejudge.com/fees/",
+            "quote": "For all documents being recorded, the first page is $13.50, and each additional page of the document is $5.50."
+          }
+        ],
+        "confidence": "partial",
+        "unverifiedFields": []
+      }
+    },
+    "AK": {
+      "transferTax": {
+        "imposed": false,
+        "stateRateDescription": "None: no statewide real estate transfer, documentary stamp or conveyance tax; only recording fees apply",
+        "approxCombinedRate": 0,
+        "trustTransferExempt": "yes",
+        "familyTransferExempt": "yes",
+        "llcContributionExempt": "yes",
+        "notes": "No transfer tax is due on any deed. NAR lists Alaska among states without a statewide transfer tax (2023) and the Recorder's Office fee schedule shows only recording fees. Municipal transfer taxes were not separately verified.",
+        "sources": [
+          {
+            "label": "NAR Focus - State and Local Issues: Real Estate Transfer Tax (trade association, 2023)",
+            "url": "https://www.narfocus.com/publication-issue/view/2023-07-05-state-and-local-issues-real-estate-transfer-tax",
+            "quote": "14 states do not have a statewide transfer tax: Alaska, Idaho, Indiana, Louisiana, Kansas, Mississippi, Missouri, Montana, New Mexico, North Dakota, Oregon (most counties), Texas, Utah and Wyoming."
+          }
+        ],
+        "confidence": "partial",
+        "unverifiedFields": []
+      },
+      "propertyTaxAffidavit": {
+        "required": false,
+        "formName": null,
+        "deadlineDays": null,
+        "notes": "The Recorder's Office minimum recording criteria (AS 40.17.030; 11 AAC 06.040) require a title, indexing data, recording district, legal description and grantor/grantee mailing addresses on deeds, but no transfer-tax return or valuation affidavit.",
+        "sources": [
+          {
+            "label": "Alaska DNR Recorder's Office - Preparing Documents",
+            "url": "https://dnr.alaska.gov/ssd/recoff/PreparingDocs",
+            "quote": "Deed documents must contain complete mailing addresses of all persons who grant or acquire an interest."
+          }
+        ],
+        "confidence": "partial",
+        "unverifiedFields": []
+      },
+      "recording": {
+        "feeLow": 20,
+        "feeHigh": 30,
+        "notes": "Statewide DNR Recorder's Office fee is $20.00 for the first page and $5.00 for each additional page (a page is one side of a sheet), so a 1-3 page deed costs $20-$30. A $50.00 non-standard document fee applies if margin or format rules are not met; $2.00 per name indexed beyond six.",
+        "sources": [
+          {
+            "label": "Alaska DNR Recorder's Office - Fees (first page $20.00; AS 40.17.030; 11 AAC 05.200)",
+            "url": "https://dnr.alaska.gov/ssd/recoff/fees",
+            "quote": "or fraction thereof $20.00"
+          },
+          {
+            "label": "Alaska DNR Recorder's Office - Fees (each additional page)",
+            "url": "https://dnr.alaska.gov/ssd/recoff/fees",
+            "quote": "Each additional page or fraction thereof (same instrument) 5.00"
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      }
+    },
+    "AZ": {
+      "transferTax": {
+        "imposed": false,
+        "stateRateDescription": "None: Ariz. Const. art. IX, § 24 bars new real-property transfer taxes; only a $2 recorder transfer fee (A.R.S. § 11-1132) applies and is included in the recording fee",
+        "approxCombinedRate": 0,
+        "trustTransferExempt": "yes",
+        "familyTransferExempt": "yes",
+        "llcContributionExempt": "yes",
+        "notes": "No state or local transfer tax on sales or gifts. The constitution bars any new tax, fee or stamp requirement on transferring real property after Dec. 31, 2007; the existing $2 real estate transfer fee is part of the $30 recording fee.",
+        "sources": [
+          {
+            "label": "Ariz. Const. art. IX, § 24",
+            "url": "https://www.azleg.gov/const/9/24.htm",
+            "quote": "shall not impose any new tax, fee, stamp requirement or other assessment, direct or indirect, on the act or privilege of selling, purchasing, granting, assigning, transferring, receiving, or otherwise conveying any interest in real property"
+          },
+          {
+            "label": "A.R.S. § 11-1132",
+            "url": "https://www.azleg.gov/ars/11/01132.htm",
+            "quote": "Before recording a deed or contract relating to the sale or transfer of real property, the county recorder shall collect a fee of two dollars for the deed or contract."
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      },
+      "propertyTaxAffidavit": {
+        "required": true,
+        "formName": "Affidavit of Property Value (ADOR Form 82162)",
+        "deadlineDays": 0,
+        "notes": "Appended to the deed at recording (A.R.S. 11-1133) unless an exemption under 11-1134 is noted on the deed face: deed of gift, transfer from a person to a trustee for nominal consideration, or member-to-LLC transfer for nominal consideration. The recorder refuses deeds lacking the affidavit or an exemption notation.",
+        "sources": [
+          {
+            "label": "A.R.S. § 11-1133",
+            "url": "https://www.azleg.gov/ars/11/01133.htm",
+            "quote": "Each deed evidencing a transfer of title and any contract relating to the sale of real property shall have appended at the time of recording an affidavit of the seller and the buyer"
+          },
+          {
+            "label": "A.R.S. § 11-1134",
+            "url": "https://www.azleg.gov/ars/11/01134.htm",
+            "quote": "From a person to a trustee or from a trustee to a trust beneficiary with only nominal actual consideration for the transfer."
+          },
+          {
+            "label": "Arizona Department of Revenue - Affidavit of Property Value",
+            "url": "https://azdor.gov/forms/property-tax-forms/affidavit-property-value",
+            "quote": "Affidavit of Property Value This form is used to record the selling price, date of sale and other required information about the sale of property."
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      },
+      "recording": {
+        "feeLow": 30,
+        "feeHigh": 30,
+        "notes": "Statutory county recorder fee is a flat $30 per instrument, which already includes the $2 real estate transfer fee; $15 per instrument when a government body requests recording. The statute sets no per-page charge.",
+        "sources": [
+          {
+            "label": "A.R.S. § 11-475",
+            "url": "https://www.azleg.gov/ars/11/00475.htm",
+            "quote": "For recording papers required or authorized by law to be recorded, if the fee is not otherwise specified in this section, $30 per instrument."
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      }
+    },
+    "AR": {
+      "transferTax": {
+        "imposed": true,
+        "stateRateDescription": "$3.30 per $1,000 of consideration ($1.10 plus an additional $2.20), levied only when consideration exceeds $100 (Ark. Code § 26-60-105)",
+        "approxCombinedRate": 0.0033,
+        "trustTransferExempt": "yes",
+        "familyTransferExempt": "yes",
+        "llcContributionExempt": "yes",
+        "notes": "The tax applies only when consideration exceeds $100, so gifts and no-consideration transfers to a revocable trust owe none. Transfers between a business entity and its member incident to capitalization or reorganization are exempt under 26-60-102(11). Unless otherwise agreed, paid half by seller and half by buyer.",
+        "sources": [
+          {
+            "label": "Arkansas DFA - Real Property Transfer Tax",
+            "url": "https://www.dfa.arkansas.gov/office/taxes/excise-tax-administration/miscellaneous-tax/arkansas-miscellaneous-tax-laws/real-property-transfer/",
+            "quote": "The tax rate is $3.30 per $1,000 of actual consideration on transactions that exceed $100."
+          },
+          {
+            "label": "Ark. Code § 26-60-105 (FindLaw)",
+            "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-105/",
+            "quote": "when the consideration for the lands, tenements, or other realty conveyed exceeds one hundred dollars ($100)"
+          },
+          {
+            "label": "Ark. Code § 26-60-102(11) (FindLaw)",
+            "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-102/",
+            "quote": "An instrument conveying land between corporations, partnerships, limited liability companies, or other business entities or between a business entity and its shareholder, partner, or member incident to the organization"
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      },
+      "propertyTaxAffidavit": {
+        "required": true,
+        "formName": "Real Property Transfer Tax Affidavit of Compliance",
+        "deadlineDays": 0,
+        "notes": "Presented to the county recorder with the deed, with documentary stamps. A clearly exempt instrument can instead carry the statement 'This instrument is exempt from the real property transfer tax'; if no tax is due but the exemption is not clear (for example a no-consideration gift), the affidavit states that fact and is signed by the grantee.",
+        "sources": [
+          {
+            "label": "Ark. Code § 26-60-107 (FindLaw)",
+            "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-107/",
+            "quote": "Real Property Transfer Tax Affidavit of Compliance Form"
+          },
+          {
+            "label": "Ark. Code § 26-60-110 (FindLaw)",
+            "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-110/",
+            "quote": "An affidavit or compliance form from the Department of Finance and Administration or a receipt showing proof of tax paid is not required to be attached to an instrument that is exempt from the payment of the real property transfer tax"
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      },
+      "recording": {
+        "feeLow": 15,
+        "feeHigh": 25,
+        "notes": "Uniform county recorder fee under Ark. Code 21-6-306: $15.00 for the first page (one side) and $5.00 for each additional page, so a 1-3 page deed costs $15-$25. Extra $25 if the recorder waives format requirements for good cause.",
+        "sources": [
+          {
+            "label": "Ark. Code § 21-6-306 (FindLaw)",
+            "url": "https://codes.findlaw.com/ar/title-21-public-officers-and-employees/ar-code-sect-21-6-306/",
+            "quote": "fifteen dollars ($15.00) for one (1) page, one (1) side only, and five dollars ($5.00) for each additional page"
+          },
+          {
+            "label": "Crawford County Circuit Clerk - Recording Fees & Standards",
+            "url": "https://crawfordcircuitclerk.com/recording-fees-standards/",
+            "quote": "1st page: $15.00 Each additional: $5.00"
+          }
+        ],
+        "confidence": "verified",
+        "unverifiedFields": []
+      }
+    },
+    "ZZ_SENTINEL": null
+  }
+}
