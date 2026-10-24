@@ -1,0 +1,259 @@
+{
+  "code": "AK",
+  "name": "Alaska",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": null,
+      "cite": null
+    }
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "mechanisms": [
+      "trust_only"
+    ],
+    "primaryMechanism": "trust_only",
+    "todStatute": null,
+    "ladyBird": "unclear",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": []
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": false,
+    "stateRateDescription": "None: no statewide real estate transfer, documentary stamp or conveyance tax; only recording fees apply",
+    "approxCombinedRate": 0,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "yes",
+    "notes": "No transfer tax is due on any deed. NAR lists Alaska among states without a statewide transfer tax (2023) and the Recorder's Office fee schedule shows only recording fees. Municipal transfer taxes were not separately verified.",
+    "sources": [
+      {
+        "label": "NAR Focus - State and Local Issues: Real Estate Transfer Tax (trade association, 2023)",
+        "url": "https://www.narfocus.com/publication-issue/view/2023-07-05-state-and-local-issues-real-estate-transfer-tax",
+        "quote": "14 states do not have a statewide transfer tax: Alaska, Idaho, Indiana, Louisiana, Kansas, Mississippi, Missouri, Montana, New Mexico, North Dakota, Oregon (most counties), Texas, Utah and Wyoming."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "propertyTaxAffidavit": {
+    "required": false,
+    "formName": null,
+    "deadlineDays": null,
+    "notes": "The Recorder's Office minimum recording criteria (AS 40.17.030; 11 AAC 06.040) require a title, indexing data, recording district, legal description and grantor/grantee mailing addresses on deeds, but no transfer-tax return or valuation affidavit.",
+    "sources": [
+      {
+        "label": "Alaska DNR Recorder's Office - Preparing Documents",
+        "url": "https://dnr.alaska.gov/ssd/recoff/PreparingDocs",
+        "quote": "Deed documents must contain complete mailing addresses of all persons who grant or acquire an interest."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "feeLow": 20,
+    "feeHigh": 30,
+    "notes": "Statewide DNR Recorder's Office fee is $20.00 for the first page and $5.00 for each additional page (a page is one side of a sheet), so a 1-3 page deed costs $20-$30. A $50.00 non-standard document fee applies if margin or format rules are not met; $2.00 per name indexed beyond six.",
+    "sources": [
+      {
+        "label": "Alaska DNR Recorder's Office - Fees (first page $20.00; AS 40.17.030; 11 AAC 05.200)",
+        "url": "https://dnr.alaska.gov/ssd/recoff/fees",
+        "quote": "or fraction thereof $20.00"
+      },
+      {
+        "label": "Alaska DNR Recorder's Office - Fees (each additional page)",
+        "url": "https://dnr.alaska.gov/ssd/recoff/fees",
+        "quote": "Each additional page or fraction thereof (same instrument) 5.00"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "formationFee": null,
+    "formationFormName": null,
+    "filingAgency": null,
+    "onlinePortal": null,
+    "reportCadence": "unknown",
+    "reportFee": null,
+    "reportDue": null,
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": null,
+    "operatingAgreementRequired": null,
+    "publicationRequired": null,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "code": "AZ",
+  "name": "Arizona",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": null,
+      "cite": null
+    }
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "mechanisms": [
+      "trust_only"
+    ],
+    "primaryMechanism": "trust_only",
+    "todStatute": null,
+    "ladyBird": "unclear",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": []
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": false,
+    "stateRateDescription": "None: Ariz. Const. art. IX, \u00a7 24 bars new real-property transfer taxes; only a $2 recorder transfer fee (A.R.S. \u00a7 11-1132) applies and is included in the recording fee",
+    "approxCombinedRate": 0,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "yes",
+    "notes": "No state or local transfer tax on sales or gifts. The constitution bars any new tax, fee or stamp requirement on transferring real property after Dec. 31, 2007; the existing $2 real estate transfer fee is part of the $30 recording fee.",
+    "sources": [
+      {
+        "label": "Ariz. Const. art. IX, \u00a7 24",
+        "url": "https://www.azleg.gov/const/9/24.htm",
+        "quote": "shall not impose any new tax, fee, stamp requirement or other assessment, direct or indirect, on the act or privilege of selling, purchasing, granting, assigning, transferring, receiving, or otherwise conveying any interest in real property"
+      },
+      {
+        "label": "A.R.S. \u00a7 11-1132",
+        "url": "https://www.azleg.gov/ars/11/01132.htm",
+        "quote": "Before recording a deed or contract relating to the sale or transfer of real property, the county recorder shall collect a fee of two dollars for the deed or contract."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Affidavit of Property Value (ADOR Form 82162)",
+    "deadlineDays": 0,
+    "notes": "Appended to the deed at recording (A.R.S. 11-1133) unless an exemption under 11-1134 is noted on the deed face: deed of gift, transfer from a person to a trustee for nominal consideration, or member-to-LLC transfer for nominal consideration. The recorder refuses deeds lacking the affidavit or an exemption notation.",
+    "sources": [
+      {
+        "label": "A.R.S. \u00a7 11-1133",
+        "url": "https://www.azleg.gov/ars/11/01133.htm",
+        "quote": "Each deed evidencing a transfer of title and any contract relating to the sale of real property shall have appended at the time of recording an affidavit of the seller and the buyer"
+      },
+      {
+        "label": "A.R.S. \u00a7 11-1134",
+        "url": "https://www.azleg.gov/ars/11/01134.htm",
+        "quote": "From a person to a trustee or from a trustee to a trust beneficiary with only nominal actual consideration for the transfer."
+      },
+      {
+        "label": "Arizona Department of Revenue - Affidavit of Property Value",
+        "url": "https://azdor.gov/forms/property-tax-forms/affidavit-property-value",
+        "quote": "Affidavit of Property Value This form is used to record the selling price, date of sale and other required information about the sale of property."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "feeLow": 30,
+    "feeHigh": 30,
+    "notes": "Statutory county recorder fee is a flat $30 per instrument, which already includes the $2 real estate transfer fee; $15 per instrument when a government body requests recording. The statute sets no per-page charge.",
+    "sources": [
+      {
+        "label": "A.R.S. \u00a7 11-475",
+        "url": "https://www.azleg.gov/ars/11/00475.htm",
+        "quote": "For recording papers required or authorized by law to be recorded, if the fee is not otherwise specified in this section, $30 per instrument."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "formationFee": null,
+    "formationFormName": null,
+    "filingAgency": null,
+    "onlinePortal": null,
+    "reportCadence": "unknown",
+    "reportFee": null,
+    "reportDue": null,
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": null,
+    "operatingAgreementRequired": null,
+    "publicationRequired": null,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

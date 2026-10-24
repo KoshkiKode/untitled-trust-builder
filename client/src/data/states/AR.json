@@ -1,0 +1,274 @@
+{
+  "code": "AR",
+  "name": "Arkansas",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": null,
+      "cite": null
+    }
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "mechanisms": [
+      "trust_only"
+    ],
+    "primaryMechanism": "trust_only",
+    "todStatute": null,
+    "ladyBird": "unclear",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": []
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "$3.30 per $1,000 of consideration ($1.10 plus an additional $2.20), levied only when consideration exceeds $100 (Ark. Code \u00a7 26-60-105)",
+    "approxCombinedRate": 0.0033,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "yes",
+    "notes": "The tax applies only when consideration exceeds $100, so gifts and no-consideration transfers to a revocable trust owe none. Transfers between a business entity and its member incident to capitalization or reorganization are exempt under 26-60-102(11). Unless otherwise agreed, paid half by seller and half by buyer.",
+    "sources": [
+      {
+        "label": "Arkansas DFA - Real Property Transfer Tax",
+        "url": "https://www.dfa.arkansas.gov/office/taxes/excise-tax-administration/miscellaneous-tax/arkansas-miscellaneous-tax-laws/real-property-transfer/",
+        "quote": "The tax rate is $3.30 per $1,000 of actual consideration on transactions that exceed $100."
+      },
+      {
+        "label": "Ark. Code \u00a7 26-60-105 (FindLaw)",
+        "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-105/",
+        "quote": "when the consideration for the lands, tenements, or other realty conveyed exceeds one hundred dollars ($100)"
+      },
+      {
+        "label": "Ark. Code \u00a7 26-60-102(11) (FindLaw)",
+        "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-102/",
+        "quote": "An instrument conveying land between corporations, partnerships, limited liability companies, or other business entities or between a business entity and its shareholder, partner, or member incident to the organization"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Real Property Transfer Tax Affidavit of Compliance",
+    "deadlineDays": 0,
+    "notes": "Presented to the county recorder with the deed, with documentary stamps. A clearly exempt instrument can instead carry the statement 'This instrument is exempt from the real property transfer tax'; if no tax is due but the exemption is not clear (for example a no-consideration gift), the affidavit states that fact and is signed by the grantee.",
+    "sources": [
+      {
+        "label": "Ark. Code \u00a7 26-60-107 (FindLaw)",
+        "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-107/",
+        "quote": "Real Property Transfer Tax Affidavit of Compliance Form"
+      },
+      {
+        "label": "Ark. Code \u00a7 26-60-110 (FindLaw)",
+        "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-60-110/",
+        "quote": "An affidavit or compliance form from the Department of Finance and Administration or a receipt showing proof of tax paid is not required to be attached to an instrument that is exempt from the payment of the real property transfer tax"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "feeLow": 15,
+    "feeHigh": 25,
+    "notes": "Uniform county recorder fee under Ark. Code 21-6-306: $15.00 for the first page (one side) and $5.00 for each additional page, so a 1-3 page deed costs $15-$25. Extra $25 if the recorder waives format requirements for good cause.",
+    "sources": [
+      {
+        "label": "Ark. Code \u00a7 21-6-306 (FindLaw)",
+        "url": "https://codes.findlaw.com/ar/title-21-public-officers-and-employees/ar-code-sect-21-6-306/",
+        "quote": "fifteen dollars ($15.00) for one (1) page, one (1) side only, and five dollars ($5.00) for each additional page"
+      },
+      {
+        "label": "Crawford County Circuit Clerk - Recording Fees & Standards",
+        "url": "https://crawfordcircuitclerk.com/recording-fees-standards/",
+        "quote": "1st page: $15.00 Each additional: $5.00"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "formationFee": null,
+    "formationFormName": null,
+    "filingAgency": null,
+    "onlinePortal": null,
+    "reportCadence": "unknown",
+    "reportFee": null,
+    "reportDue": null,
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": null,
+    "operatingAgreementRequired": null,
+    "publicationRequired": null,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

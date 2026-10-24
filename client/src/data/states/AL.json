@@ -1,0 +1,284 @@
+{
+  "code": "AL",
+  "name": "Alabama",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": null,
+      "cite": null
+    }
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "mechanisms": [
+      "trust_only"
+    ],
+    "primaryMechanism": "trust_only",
+    "todStatute": null,
+    "ladyBird": "unclear",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": []
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "Deed tax of $0.50 per $500 (or fraction) of value conveyed, Ala. Code \u00a7 40-22-1; two-thirds goes to the state and one-third to the county",
+    "approxCombinedRate": 0.001,
+    "trustTransferExempt": "no",
+    "familyTransferExempt": "no",
+    "llcContributionExempt": "no",
+    "notes": "Tax is based on the actual purchase price or, if not sold, the actual value of the property. Exemptions in 40-22-1(b) are narrow (mortgage transfers, corrected deeds, nominal-consideration deeds executed to perfect title); none expressly covers revocable-trust, family or LLC transfers, so county practice may differ.",
+    "sources": [
+      {
+        "label": "Alabama Department of Revenue - Recordation Tax",
+        "url": "https://www.revenue.alabama.gov/tax-types/recordation-tax/",
+        "quote": "$.50 per $500 of value or fraction thereof"
+      },
+      {
+        "label": "Ala. Code \u00a7 40-22-1(b)(2) (FindLaw)",
+        "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+        "quote": "Deeds or instruments executed for a nominal consideration for the purpose of perfecting the title to real estate."
+      },
+      {
+        "label": "Ala. Code \u00a7 40-22-1(c) (FindLaw)",
+        "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+        "quote": "if the property has not been sold, proof of the actual value of the real or personal property which is the subject of the instrument being recorded"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Real Estate Sales Validation Form (Form RT-1)",
+    "deadlineDays": 0,
+    "notes": "Submitted with the deed to the county probate office. The form is not needed if the deed itself states grantor and grantee names and mailing addresses, the property's physical address and the actual price or value. Houston County says state instructions require the information even for tax-exempt deeds.",
+    "sources": [
+      {
+        "label": "Ala. Code \u00a7 40-22-1(c) (FindLaw)",
+        "url": "https://codes.findlaw.com/al/title-40-revenue-and-taxation/al-code-sect-40-22-1/",
+        "quote": "The Department of Revenue shall develop a form which shall be used for attesting to the actual value or actual purchase price of the property"
+      },
+      {
+        "label": "Alabama Department of Revenue - Real Estate Sales Validation Form",
+        "url": "https://www.revenue.alabama.gov/forms/real-estate-sales-validation-form/",
+        "quote": "Form Number: Form RT-1"
+      },
+      {
+        "label": "Houston County Probate Office - Recording Guidelines",
+        "url": "https://houstoncountyal.gov/probate/recording_guidelines/",
+        "quote": "even if this is a tax-exempt recording, the information and/or form will still be required for filing"
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "feeLow": 13,
+    "feeHigh": 30,
+    "notes": "Set county by county by the judge of probate: about $13.00-$16.00 for the first page and $3.00-$5.50 for each additional page, plus $1.00 per grantor/grantee beyond two and a $1.00 no-tax-collected fee where applicable. Deed tax is separate. The RT-1 form is recorded as an extra page when used.",
+    "sources": [
+      {
+        "label": "Lauderdale County Probate Office - Recording Costs",
+        "url": "https://www.lauderdalecountyal.gov/home/departments/probate-office/recording-costs/",
+        "quote": "$16.00 for the 1st page plus $3.00 for each additional page"
+      },
+      {
+        "label": "Houston County Probate Office - Recording Guidelines",
+        "url": "https://houstoncountyal.gov/probate/recording_guidelines/",
+        "quote": "Recording Page Fees: $13.00 1st page, $3.00 each additional"
+      },
+      {
+        "label": "DeKalb County Probate Judge - Fees",
+        "url": "https://dekalbprobatejudge.com/fees/",
+        "quote": "For all documents being recorded, the first page is $13.50, and each additional page of the document is $5.50."
+      }
+    ],
+    "confidence": "verified",
+    "unverifiedFields": []
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "formationFee": null,
+    "formationFormName": null,
+    "filingAgency": null,
+    "onlinePortal": null,
+    "reportCadence": "unknown",
+    "reportFee": null,
+    "reportDue": null,
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": null,
+    "operatingAgreementRequired": null,
+    "publicationRequired": null,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

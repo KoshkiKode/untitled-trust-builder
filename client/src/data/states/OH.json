@@ -1,0 +1,282 @@
+{
+  "code": "OH",
+  "name": "Ohio",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "execution": {
+      "mode": "notary",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": true,
+      "cite": null
+    },
+    "notes": "Ohio recognizes revocable living trusts and certificates of trust. Notarization is standard practice for enforceability.",
+    "sources": [
+      {
+        "label": "Ohio Revised Code Ch. 5801–5811 (Ohio Trust Code)",
+        "url": "https://codes.ohio.gov/ohio-revised-code/chapter-5801",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "execution",
+      "utc",
+      "trustCodeCite",
+      "certificationOfTrust.cite"
+    ]
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "mechanisms": [
+      "tod_affidavit",
+      "trust_only"
+    ],
+    "primaryMechanism": "tod_affidavit",
+    "todStatute": null,
+    "ladyBird": "no",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": [],
+    "notes": "Ohio replaced the transfer-on-death DEED with the Transfer on Death Designation Affidavit (effective Dec 28, 2009). TOD deeds recorded before that date remain valid. Ohio does not recognize Lady Bird deeds.",
+    "sources": [
+      {
+        "label": "eForms — TOD by State",
+        "url": "https://eforms.com/deeds/transfer-on-death/",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "todStatute",
+      "execution",
+      "requiredElements"
+    ]
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "Conveyance fee $1.00 per $1,000 state + up to $3.00 per $1,000 county (≈0.1–0.4%)",
+    "approxCombinedRate": 0.003,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "unknown",
+    "notes": "Ohio conveyance fee is low. Many county-level exemptions exist for transfers to a trust or between relatives — verify with the county auditor.",
+    "sources": [
+      {
+        "label": "Ohio Rev. Code § 319.54",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-319.54",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "llcContributionExempt"
+    ]
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Statement of Reason for Exemption from Real Property Conveyance Fee (DTE 100EX) / Conveyance Fee Statement (DTE 100)",
+    "deadlineDays": 0,
+    "notes": "Filed with the county auditor at the time of recording the deed.",
+    "sources": [
+      {
+        "label": "Ohio Dept. of Taxation — Real Property Forms",
+        "url": "https://tax.ohio.gov/government/real-estate/forms",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "feeLow": null,
+    "feeHigh": null
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "formationFee": 99,
+    "formationFormName": "Articles of Organization (Form 610)",
+    "filingAgency": "Ohio Secretary of State",
+    "onlinePortal": "https://bsportal.ohiosos.gov",
+    "reportCadence": "none",
+    "reportFee": 0,
+    "reportDue": "Ohio does NOT require LLCs to file an annual or biennial report.",
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": true,
+    "operatingAgreementRequired": false,
+    "publicationRequired": false,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null,
+    "notes": "One-time $99 filing fee. No recurring state report fee for LLCs. Ohio permits series LLCs.",
+    "sources": [
+      {
+        "label": "LLC University — Ohio Costs",
+        "url": "https://www.llcuniversity.com/ohio-llc/costs/",
+        "quote": null
+      },
+      {
+        "label": "Wolters Kluwer — Ohio LLC Requirements",
+        "url": "https://www.wolterskluwer.com/en/solutions/bizfilings/state-guides/ohio-llc-requirements",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "annualStateTax",
+      "foreignRegistrationFee"
+    ]
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

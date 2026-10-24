@@ -1,0 +1,277 @@
+{
+  "code": "MN",
+  "name": "Minnesota",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "execution": {
+      "mode": "notary",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": true,
+      "cite": null
+    },
+    "notes": "Minnesota adopted the Uniform Trust Code (Ch. 501C). Certificate of trust recognized under § 501C.1013.",
+    "sources": [
+      {
+        "label": "Minn. Stat. Ch. 501C",
+        "url": "https://www.revisor.mn.gov/statutes/cite/501C",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "execution",
+      "utc",
+      "trustCodeCite",
+      "certificationOfTrust.cite"
+    ]
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "mechanisms": [
+      "tod",
+      "trust_only"
+    ],
+    "primaryMechanism": "tod",
+    "todStatute": null,
+    "ladyBird": "no",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": [],
+    "notes": "Minnesota allows a Transfer on Death Deed for real property under Minn. Stat. § 507.071. No Lady Bird deed.",
+    "sources": [
+      {
+        "label": "Minn. Stat. § 507.071",
+        "url": "https://www.revisor.mn.gov/statutes/cite/507.071",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "todStatute",
+      "execution",
+      "requiredElements"
+    ]
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "Deed tax $3.30 per $1,000 (0.33%)",
+    "approxCombinedRate": 0.0033,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "unknown",
+    "notes": "Transfers to a grantor's revocable trust may qualify for the minimum $1.65 deed tax. Verify with the county recorder.",
+    "sources": [
+      {
+        "label": "Minn. Stat. Ch. 287 — Deed Tax",
+        "url": "https://www.revisor.mn.gov/statutes/cite/287",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "llcContributionExempt"
+    ]
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Certificate of Real Estate Value (CRV)",
+    "deadlineDays": 0,
+    "notes": "Electronic CRV (eCRV) required for most transfers over $3,000; submitted with the deed.",
+    "sources": [
+      {
+        "label": "MN DOR — eCRV",
+        "url": "https://www.revenue.state.mn.us/ecrv-electronic-certificate-real-estate-value",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "feeLow": null,
+    "feeHigh": null
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "formationFee": 155,
+    "formationFormName": "Articles of Organization",
+    "filingAgency": "Minnesota Secretary of State",
+    "onlinePortal": "https://mblsportal.sos.state.mn.us",
+    "reportCadence": "annual",
+    "reportFee": 0,
+    "reportDue": "Annual Renewal due December 31 each year — $0 for domestic LLCs (free). Failure to file leads to administrative dissolution.",
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": false,
+    "operatingAgreementRequired": false,
+    "publicationRequired": false,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null,
+    "notes": "Formation is $155 online/in-person ($135 by mail). The annual renewal itself is free.",
+    "sources": [
+      {
+        "label": "MN SOS — Fee Schedule",
+        "url": "https://www.sos.mn.gov/business-liens/business-filing-and-certification-fee-schedule/",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "annualStateTax",
+      "foreignRegistrationFee"
+    ]
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}
