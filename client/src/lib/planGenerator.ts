@@ -7,6 +7,8 @@ import type {
 } from "@/data/types";
 import { getState, hasCoreData, isGroupUsable, type ExecutionRule, type StateLaw, type SourceRef } from "@/data/jurisdictions";
 import { fmtUSD, fmtRange, fmtPct } from "./constants";
+import { assessRisks, RISK_LABEL } from "@/lib/riskEngine";
+import { propertyEconomics } from "@/lib/finance";
 
 /** Format a state's sources array into footnote lines. */
 function sourceLines(sources: SourceRef[]): string[] {
@@ -534,15 +536,54 @@ export function generatePlan(plan: EstatePlan): BusinessPlan {
     });
   }
 
+  const risks = assessRisks(plan);
+  const riskBody: string[] = [];
+  if (risks.length === 0) {
+    riskBody.push("No risk flags were triggered by the information entered. This does not replace an attorney or tax review.");
+  }
+  for (const r of risks) {
+    riskBody.push(`${RISK_LABEL[r.severity]}: ${r.title}`);
+    riskBody.push(`  ${r.detail}`);
+    riskBody.push(`  Action: ${r.action}`);
+    riskBody.push("");
+  }
+  const riskSection: PlanSection = { id: "risks", title: "Risks & Action Items", body: riskBody };
+
+  const economicsBody: string[] = [];
+  plan.properties.forEach((p) => {
+    const e = propertyEconomics(p);
+    if (e.annualRent == null) return;
+    economicsBody.push(
+      `  • ${p.label || p.address || "Property"}: value about ${fmtUSD(e.value)}; mortgage ${fmtUSD(e.mortgage)}; equity ${fmtUSD(e.equity)}; loan-to-value ${fmtPct(e.cltv)}.`
+    );
+    economicsBody.push(
+      `    Rent ${fmtUSD(e.annualRent)} a year; net operating income ${fmtUSD(e.noi)}; debt service ${fmtUSD(e.annualDebtService)}; coverage ${
+        e.dscr == null ? "not available (enter the mortgage rate)" : e.dscr.toFixed(2)
+      }; cash flow after debt ${fmtUSD(e.cashFlow)} a year.`
+    );
+  });
+  if (economicsBody.length) {
+    economicsBody.unshift(
+      "Figures use the rent, vacancy (5% unless entered), operating costs, taxes and mortgage terms you entered. Debt service assumes a 30-year amortizing payment. Confirm against actual leases, statements and lender terms."
+    );
+  }
+  const orderedSections: PlanSection[] = [
+    sections[0],
+    riskSection,
+    ...(economicsBody.length ? [{ id: "rental-economics", title: "Rental Economics", body: economicsBody }] : []),
+    ...sections.slice(1),
+  ];
+
   return {
     title: `Estate Plan — ${settlorName}`,
     subtitle: `${stateName} revocable living trust${
       llcEnabled ? ` + ${llcState?.name ?? plan.llc.stateCode} LLC` : ""
     }`,
     generatedAt: new Date().toLocaleString("en-US"),
-    sections,
+    sections: orderedSections,
     setupCosts,
     annualCosts,
     outstandingItems,
+    risks,
   };
 }

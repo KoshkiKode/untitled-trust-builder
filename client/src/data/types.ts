@@ -35,6 +35,9 @@ export interface Property {
   monthlyRent?: number;
   annualOperatingExpenses?: number;
   mortgageRate?: number;
+  vacancyRate?: number;
+  management?: "self" | "manager";
+  managementFeePct?: number;
   marketValueLow?: number;
   marketValueHigh?: number;
   assessedValue?: number;
@@ -97,6 +100,18 @@ export interface PlanSection {
   body: string[];
 }
 
+export type RiskSeverity = "critical" | "high" | "medium" | "info";
+
+/** A rule-based finding about the plan, with the action it implies. */
+export interface RiskFlag {
+  id: string;
+  severity: RiskSeverity;
+  title: string;
+  detail: string;
+  action: string;
+  propertyId?: string;
+}
+
 export interface CostLine {
   item: string;
   low: number;
@@ -112,6 +127,7 @@ export interface BusinessPlan {
   setupCosts: CostLine[];
   annualCosts: CostLine[];
   outstandingItems: { item: string; action: string }[];
+  risks: RiskFlag[];
 }
 
 export type DocumentKind =
