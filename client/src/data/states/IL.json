@@ -1,0 +1,282 @@
+{
+  "code": "IL",
+  "name": "Illinois",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "execution": {
+      "mode": "notary",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": true,
+      "cite": null
+    },
+    "notes": "Illinois Trust Code (760 ILCS 3). Certification of trust recognized under § 1013.",
+    "sources": [
+      {
+        "label": "760 ILCS 3 — Illinois Trust Code",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=4030",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "execution",
+      "utc",
+      "trustCodeCite",
+      "certificationOfTrust.cite"
+    ]
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "mechanisms": [
+      "tod",
+      "trust_only"
+    ],
+    "primaryMechanism": "tod",
+    "todStatute": null,
+    "ladyBird": "no",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": [],
+    "notes": "Illinois allows a Transfer on Death Instrument (TODI) for residential real property under the Illinois Residential Real Property Transfer on Death Instrument Act (755 ILCS 27). No Lady Bird deed.",
+    "sources": [
+      {
+        "label": "755 ILCS 27 — TODI Act",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=3431",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "todStatute",
+      "execution",
+      "requiredElements"
+    ]
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "State $0.50 per $500 + county $0.25 per $500 + many municipal taxes (≈0.15%+ before municipal)",
+    "approxCombinedRate": 0.0015,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "unknown",
+    "notes": "Transfers to a grantor's revocable trust are exempt. Many Illinois municipalities (e.g., Chicago) add substantial local transfer taxes — check locally.",
+    "sources": [
+      {
+        "label": "35 ILCS 200/31 — Real Estate Transfer Tax Law",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs4.asp?DocName=003502000HArt%2E+31",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "llcContributionExempt"
+    ]
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Illinois Real Estate Transfer Declaration (PTAX-203)",
+    "deadlineDays": 0,
+    "notes": "Filed with the county recorder at the time of recording.",
+    "sources": [
+      {
+        "label": "IL DOR — PTAX-203",
+        "url": "https://tax.illinois.gov/research/taxinformation/property/ptax203.html",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "feeLow": null,
+    "feeHigh": null
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "formationFee": 150,
+    "formationFormName": "Articles of Organization (LLC-5.5)",
+    "filingAgency": "Illinois Secretary of State",
+    "onlinePortal": "https://www.ilsos.gov/businessentities/",
+    "reportCadence": "annual",
+    "reportFee": 75,
+    "reportDue": "Annual Report ($75) due before the first day of the anniversary month.",
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": true,
+    "operatingAgreementRequired": false,
+    "publicationRequired": false,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null,
+    "notes": "Formation $150 ($400 for a series LLC). Illinois permits series LLCs. Annual report late penalty is $100.",
+    "sources": [
+      {
+        "label": "Tailor Brands — IL LLC Costs",
+        "url": "https://www.tailorbrands.com/llc-formation/illinois-llc/llc-costs",
+        "quote": null
+      },
+      {
+        "label": "FileForms — IL Annual Report",
+        "url": "https://fileforms.com/illinois-annual-report-filing/",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "annualStateTax",
+      "foreignRegistrationFee"
+    ]
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

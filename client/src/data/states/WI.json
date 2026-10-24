@@ -1,0 +1,282 @@
+{
+  "code": "WI",
+  "name": "Wisconsin",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "execution": {
+      "mode": "notary",
+      "witnesses": 0
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": true,
+      "cite": null
+    },
+    "notes": "Wisconsin adopted the Uniform Trust Code (Ch. 701). Revocable trusts are grantor trusts during life. Certificate of trust is recognized.",
+    "sources": [
+      {
+        "label": "Wis. Stat. Ch. 701 — Trusts",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/701",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "execution",
+      "utc",
+      "trustCodeCite",
+      "certificationOfTrust.cite"
+    ]
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "mechanisms": [
+      "tod",
+      "trust_only"
+    ],
+    "primaryMechanism": "tod",
+    "todStatute": null,
+    "ladyBird": "no",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": [],
+    "notes": "Wisconsin allows a Transfer on Death (TOD) deed for real property under Wis. Stat. § 705.15. No Lady Bird deed.",
+    "sources": [
+      {
+        "label": "Wis. Stat. § 705.15",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/705/iii/15",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "todStatute",
+      "execution",
+      "requiredElements"
+    ]
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "Real estate transfer fee $3.00 per $1,000 (0.3%)",
+    "approxCombinedRate": 0.003,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "unknown",
+    "notes": "Transfers to/from a revocable trust by the grantor and certain family transfers are exempt under Wis. Stat. § 77.25.",
+    "sources": [
+      {
+        "label": "Wis. Stat. § 77.25 — Exemptions",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/77/ii/25",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "llcContributionExempt"
+    ]
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Real Estate Transfer Return (eRETR)",
+    "deadlineDays": 0,
+    "notes": "Completed electronically (eRETR) and submitted with the deed at recording.",
+    "sources": [
+      {
+        "label": "WI DOR — eRETR",
+        "url": "https://www.revenue.wi.gov/Pages/RETr/home.aspx",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "feeLow": null,
+    "feeHigh": null
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "formationFee": 170,
+    "formationFormName": "Articles of Organization (Form 502)",
+    "filingAgency": "WI Department of Financial Institutions",
+    "onlinePortal": "https://www.wdfi.org/apps/CorpFormation/",
+    "reportCadence": "annual",
+    "reportFee": 25,
+    "reportDue": "Annual Report due by end of the calendar quarter of the formation anniversary. $25 online ($40 by mail incl. $15 paper surcharge).",
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": true,
+    "operatingAgreementRequired": false,
+    "publicationRequired": false,
+    "publicationNotes": null,
+    "foreignRegistrationFee": null,
+    "notes": "Articles of Organization filing fee is $170 (Form Corp502, rev. May 2026). Wisconsin permits series LLCs.",
+    "sources": [
+      {
+        "label": "WI DFI — Form Corp502",
+        "url": "https://dfi.wi.gov/Documents/BusinessServices/BusinessEntities/Forms/CORP502.pdf",
+        "quote": null
+      },
+      {
+        "label": "WI DFI — Fees",
+        "url": "https://dfi.wi.gov/Pages/BusinessServices/BusinessEntities/Fees.aspx",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "annualStateTax",
+      "foreignRegistrationFee"
+    ]
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}

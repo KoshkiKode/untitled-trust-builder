@@ -1,0 +1,282 @@
+{
+  "code": "NY",
+  "name": "New York",
+  "kind": "state",
+  "asOf": "2026-10-24",
+  "coverage": "partial",
+  "trust": {
+    "execution": {
+      "mode": "witnesses_or_notary",
+      "witnesses": 2
+    },
+    "utc": "unknown",
+    "trustCodeCite": null,
+    "certificationOfTrust": {
+      "recognized": true,
+      "cite": null
+    },
+    "notes": "New York (EPTL § 7-1.17) requires a lifetime trust to be signed and acknowledged before a notary OR signed in the presence of two witnesses. Execution formalities are stricter than most states.",
+    "sources": [
+      {
+        "label": "NY EPTL § 7-1.17",
+        "url": "https://www.nysenate.gov/legislation/laws/EPT/7-1.17",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "execution",
+      "utc",
+      "trustCodeCite",
+      "certificationOfTrust.cite"
+    ]
+  },
+  "notary": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "acknowledgmentStyle": "unknown",
+    "requiredWording": null,
+    "remoteOnlineNotarization": "unknown"
+  },
+  "will": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "selfProving": "unknown",
+    "holographic": "unknown",
+    "electronic": "unknown",
+    "cite": null
+  },
+  "poa": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "uniformAct": "unknown",
+    "statutoryForm": "unknown",
+    "springingAllowed": "unknown",
+    "cite": null
+  },
+  "healthcareDirective": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "statutoryForm": "unknown",
+    "documentNames": [],
+    "witnessRestrictions": null,
+    "cite": null
+  },
+  "deed": {
+    "mechanisms": [
+      "tod",
+      "trust_only"
+    ],
+    "primaryMechanism": "tod",
+    "todStatute": null,
+    "ladyBird": "no",
+    "execution": {
+      "mode": "unknown",
+      "witnesses": 0
+    },
+    "requiredElements": [],
+    "notes": "New York enacted a Transfer on Death Deed statute effective July 2024 (RPL § 424). No Lady Bird deed.",
+    "sources": [
+      {
+        "label": "FaegreDrinker — NY 2024 TOD Deed Law",
+        "url": "https://www.faegredrinker.com/en/insights/publications/2024/7/key-to-transferring-the-garden-review-of-nys-2024-transfer-on-death-deed-law-provides-model-for-pa-nj",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "todStatute",
+      "execution",
+      "requiredElements"
+    ]
+  },
+  "spousal": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "homesteadSpousalJoinderRequired": "unknown",
+    "dowerOrCurtesy": "unknown"
+  },
+  "transferTax": {
+    "imposed": true,
+    "stateRateDescription": "State $2.00 per $500 (0.4%) + NYC and 'mansion tax' on $1M+ residences",
+    "approxCombinedRate": 0.004,
+    "trustTransferExempt": "yes",
+    "familyTransferExempt": "yes",
+    "llcContributionExempt": "unknown",
+    "notes": "Transfers to a grantor's revocable trust for no consideration are generally exempt from the state transfer tax. NYC adds its own RPTT.",
+    "sources": [
+      {
+        "label": "NY Tax Law Art. 31 — Real Estate Transfer Tax",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/A31",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "llcContributionExempt"
+    ]
+  },
+  "propertyTaxAffidavit": {
+    "required": true,
+    "formName": "Real Property Transfer Report (RP-5217) + Combined Transfer Tax Return (TP-584)",
+    "deadlineDays": 0,
+    "notes": "RP-5217 and TP-584 are filed with the deed at the county clerk.",
+    "sources": [
+      {
+        "label": "NY DTF — TP-584",
+        "url": "https://www.tax.ny.gov/forms/property/transfer.htm",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": []
+  },
+  "recording": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "feeLow": null,
+    "feeHigh": null
+  },
+  "reassessment": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "reassessesOnTransfer": "unknown",
+    "trustTransferExcluded": "unknown",
+    "llcTransferTriggers": "unknown",
+    "form": null
+  },
+  "homestead": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "exemptionSummary": "Not yet researched.",
+    "protectedAmount": null,
+    "trustTransferPreserves": "unknown"
+  },
+  "llc": {
+    "formationFee": 200,
+    "formationFormName": "Articles of Organization",
+    "filingAgency": "NY Department of State — Division of Corporations",
+    "onlinePortal": "https://dos.ny.gov/corporations",
+    "reportCadence": "biennial",
+    "reportFee": 9,
+    "reportDue": "Biennial Statement ($9) due every two years during the anniversary month (LLC Law § 301(e)).",
+    "annualStateTax": {
+      "amount": null,
+      "description": null
+    },
+    "seriesLlcAllowed": false,
+    "operatingAgreementRequired": true,
+    "publicationRequired": true,
+    "publicationNotes": "Within 120 days of formation, publish notice for six weeks in two newspapers in the county and file a Certificate of Publication ($50).",
+    "foreignRegistrationFee": null,
+    "notes": "Formation is $200. NY uniquely requires the PUBLICATION REQUIREMENT: within 120 days, publish notice in two newspapers (daily + weekly) in the county of the LLC, then file a Certificate of Publication ($50). Publication costs vary widely by county (cheap upstate, very expensive in NYC). NY LLC Law also requires a written operating agreement.",
+    "sources": [
+      {
+        "label": "Northwest — NY LLC Cost",
+        "url": "https://www.northwestregisteredagent.com/llc/new-york/cost",
+        "quote": null
+      },
+      {
+        "label": "NY DOS — Biennial Statements",
+        "url": "https://dos.ny.gov/biennial-statements-business-corporations-and-limited-liability-companies",
+        "quote": null
+      }
+    ],
+    "confidence": "partial",
+    "unverifiedFields": [
+      "annualStateTax",
+      "foreignRegistrationFee"
+    ]
+  },
+  "estateTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null,
+    "exemption": null,
+    "topRate": null,
+    "portability": "unknown"
+  },
+  "inheritanceTax": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "imposed": null
+  },
+  "propertyRegime": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "type": "unknown",
+    "optionalCommunityProperty": "unknown"
+  },
+  "landlordTenant": {
+    "notes": "Not yet researched for this jurisdiction.",
+    "sources": [],
+    "confidence": "unverified",
+    "unverifiedFields": [
+      "*"
+    ],
+    "depositLimit": null,
+    "depositReturnDays": null,
+    "depositInterest": "unknown",
+    "separateDepositAccount": "unknown",
+    "requiredDisclosures": [],
+    "rentControl": null,
+    "nonpaymentNoticeDays": null,
+    "rentIncreaseNotice": null
+  }
+}
