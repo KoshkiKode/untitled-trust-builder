@@ -7,6 +7,7 @@
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build": "tsx script/build.ts",
     "test": "tsx --test tests/**/*.test.ts",
+    "test:coverage": "c8 npm test",
     "start": "NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
     "tauri": "tauri",
@@ -92,6 +93,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "autoprefixer": "^10.6.1",
+    "c8": "^12.0.0",
     "esbuild": "^0.28.2",
     "postcss": "^8.5.31",
     "tailwindcss": "^4.3.3",
@@ -102,5 +104,21 @@
   "overrides": {
     "postcss-selector-parser": "^7.1.7",
     "uuid": "^11.1.1"
+  },
+  "c8": {
+    "all": true,
+    "src": [
+      "client/src",
+      "server"
+    ],
+    "exclude": [
+      "**/*.test.ts",
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "text",
+      "cobertura"
+    ],
+    "reports-dir": "coverage"
   }
 }

@@ -17,3 +17,7 @@ data.db-journal
 
 qa-screenshots/
 qa-downloads/
+
+# Coverage reports (c8)
+coverage/
+.nyc_output/
