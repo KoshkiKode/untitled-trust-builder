@@ -14,7 +14,7 @@ These tool-neutral instructions apply to coding agents working in this repositor
 - Do not stage, commit, push, open or update a pull request, merge, publish, release, deploy, or change live resources unless the user specifically asks. Leave changes local and uncommitted by default; the owner handles pushes.
 - Keep secrets and personal data out of files, prompts, logs, and fixtures. Use synthetic data.
 - Do not assume a particular editor, model provider, subscription, connector, or permission is available.
-- Run relevant checks from current project scripts/workflows. Report exact commands/results and any untested platforms. Do not weaken tests or claim a check passed if it was not run. For documentation-only changes, skip software tests unless relevant.
+- Report exact commands/results and any untested platforms. Do not weaken tests or claim a check passed if it was not run. For documentation-only changes, skip software tests unless relevant.
 - When the user asks for analysis, review, or planning only, do not implement changes.
 - Keep the handoff concise: changed behavior/files, validation results, assumptions, and blockers.
 
