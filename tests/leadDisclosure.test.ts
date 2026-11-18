@@ -72,3 +72,38 @@ test("rental with unknown year gets a disclosure flagged for confirmation", () =
   assert.equal(lease.length, 1);
   assert.match(lease[0].body, /NOT ENTERED/);
 });
+
+function acquisitionPlan(propertyOverrides: Partial<Property>, overrides: Partial<EstatePlan> = {}): EstatePlan {
+  return plan({
+    llc: { enabled: true, name: "Example Holdings, LLC", stateCode: "MI", soleMemberIsTrust: true },
+    funding: { useHeloc: false, structureAsLoanToLlc: false, targetPurchasePropertyId: "purchase" },
+    properties: [
+      property({
+        id: "purchase",
+        address: "71 Oak Street",
+        use: "rental",
+        transferMethod: "warranty_deed_purchase",
+        llcOwned: true,
+        ...propertyOverrides,
+      }),
+    ],
+    seller: { fullName: "Seller Example" },
+    ...overrides,
+  });
+}
+
+test("acquired rental without a card year uses the acquisition-step build year", () => {
+  const docs = generateDocuments(acquisitionPlan({}, { buildYear: 1969 }));
+  const sale = docs.find((d) => d.kind === "lead_paint_disclosure");
+  assert.ok(sale?.body.includes("Year built: 1969"), "sale disclosure shows the year");
+  const lease = leaseDocs(docs);
+  assert.equal(lease.length, 1);
+  assert.match(lease[0].body, /Year built: 1969/);
+  assert.doesNotMatch(lease[0].body, /NOT ENTERED/);
+});
+
+test("property year built overrides the acquisition-step build year", () => {
+  const docs = generateDocuments(acquisitionPlan({ yearBuilt: 1990 }, { buildYear: 1969 }));
+  assert.equal(docs.filter((d) => d.kind === "lead_paint_disclosure").length, 0);
+  assert.equal(leaseDocs(docs).length, 0);
+});

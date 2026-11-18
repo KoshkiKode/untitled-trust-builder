@@ -80,3 +80,8 @@ test("does not attach lead-paint disclosure to an unrelated first property", () 
   const leadPaint = docs.find((document) => document.kind === "lead_paint_disclosure");
   assert.equal(leadPaint?.propertyId, "purchase");
 });
+
+test("rejects a warranty-deed purchase that is not held by an LLC", () => {
+  const errors = validatePlan(plan({ properties: [property({ transferMethod: "warranty_deed_purchase" })] }));
+  assert.ok(errors.some((error) => error.includes("transfer method is not supported")));
+});

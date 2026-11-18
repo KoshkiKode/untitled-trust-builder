@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { STATES } from "../client/src/data/jurisdictions";
 import { STATE_GROUP_KEYS, stateLawSchema } from "../client/src/data/stateSchema";
+import { defaultTransferMethod } from "../client/src/lib/transferDefaults";
 
 const EXPECTED_CODES = [
   "AL","AK","AZ","AR","CA","CO","CT","DC","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA",
@@ -79,3 +80,19 @@ for (const [code, law] of entries) {
     }
   });
 }
+
+test("Michigan defaults to a Lady Bird deed for a primary residence only", () => {
+  assert.equal(defaultTransferMethod("MI", "primary_residence", false), "lady_bird");
+  assert.equal(defaultTransferMethod("MI", "rental", false), "quit_claim_to_trust");
+});
+
+test("TOD and affidavit states default to their own mechanism for any use", () => {
+  assert.equal(defaultTransferMethod("IL", "rental", false), "tod");
+  assert.equal(defaultTransferMethod("OH", "primary_residence", false), "tod_affidavit");
+});
+
+test("trust-only and unknown states fall back to a quit-claim into the trust", () => {
+  assert.equal(defaultTransferMethod("PA", "primary_residence", false), "quit_claim_to_trust");
+  assert.equal(defaultTransferMethod("ZZ", "primary_residence", false), "quit_claim_to_trust");
+});
+

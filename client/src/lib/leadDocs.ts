@@ -16,6 +16,20 @@ function propertyLabel(p: Property): string {
   return p.label || p.address || "the property";
 }
 
+/** The property being acquired: the selected target, else the first warranty-deed purchase. */
+export function acquisitionTarget(plan: EstatePlan): Property | undefined {
+  return (
+    plan.properties.find((p) => p.id === plan.funding.targetPurchasePropertyId) ||
+    plan.properties.find((p) => p.transferMethod === "warranty_deed_purchase")
+  );
+}
+
+/** Year built for lead-paint rules: the property card's year wins; the acquisition-step year fills in only for the target. */
+export function leadPaintYear(plan: EstatePlan, p: Property): number | undefined {
+  if (p.yearBuilt != null) return p.yearBuilt;
+  return acquisitionTarget(plan)?.id === p.id ? plan.buildYear : undefined;
+}
+
 function yearText(year: number | undefined): string {
   return year ? String(year) : "NOT ENTERED — confirm the year built before use";
 }
