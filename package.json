@@ -95,7 +95,7 @@
     "autoprefixer": "^10.6.1",
     "c8": "^12.0.0",
     "esbuild": "^0.28.2",
-    "postcss": "^8.5.31",
+    "postcss": "^8.5.32",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "5.9.3",
