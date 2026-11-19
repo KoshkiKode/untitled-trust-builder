@@ -81,10 +81,6 @@ export function getState(code: string | undefined | null): StateLaw | undefined 
   return code ? STATES[code.toUpperCase()] : undefined;
 }
 
-export function stateName(code: string | undefined | null): string {
-  return getState(code)?.name ?? (code ?? "");
-}
-
 /** A group is usable when it was at least partially verified from cited sources. */
 export function isGroupUsable(state: StateLaw | undefined, key: StateGroupKey): boolean {
   if (!state) return false;

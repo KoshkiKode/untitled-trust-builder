@@ -99,6 +99,20 @@ test("pre-1978 rental needs a lead disclosure finding; newer rental does not", (
   assert.ok(!ids(newer).includes("lead-new"));
 });
 
+test("acquisition-step build year gives a rental target its lead finding", () => {
+  const target = property({ id: "purchase", use: "rental", transferMethod: "warranty_deed_purchase", llcOwned: true });
+  const risks = assessRisks(
+    plan({
+      buildYear: 1969,
+      funding: { useHeloc: false, structureAsLoanToLlc: false, targetPurchasePropertyId: "purchase" },
+      llc: { enabled: true, name: "Example Holdings, LLC", stateCode: "MI", soleMemberIsTrust: true },
+      properties: [target],
+    })
+  );
+  assert.equal(risks.find((r) => r.id === "lead-purchase")?.severity, "high");
+  assert.ok(!risks.some((r) => r.id === "year-unknown-purchase"));
+});
+
 test("missing successor trustee is high severity", () => {
   const risks = assessRisks(plan({ successorTrustee: "" }));
   assert.equal(risks.find((r) => r.id === "no-successor-trustee")?.severity, "high");
